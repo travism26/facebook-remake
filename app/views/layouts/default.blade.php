@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>My Title</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
-
+    @include('layouts.partials.nav')
     <div class="container">
         @yield('content')
     </div>
