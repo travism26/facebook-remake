@@ -5,8 +5,8 @@
  * */
 
 Route::get('/', [
-    'as' => 'home',
-    'uses'=> 'PagesController@home'
+    'as'   => 'home',
+    'uses' => 'PagesController@home'
 ]);
 
 
@@ -16,6 +16,6 @@ Route::get('register', [
 ]);
 
 Route::post('register', [
-    'as' => 'register_path',
-    'uses' =>'RegistrationController@store'
+    'as'   => 'register_path',
+    'uses' => 'RegistrationController@store'
 ]);
