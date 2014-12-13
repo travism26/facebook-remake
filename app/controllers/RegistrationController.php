@@ -40,7 +40,7 @@ class RegistrationController extends \BaseController {
 
         Auth::login($user);
 
-        Flash::overlay('Glad to have you as a new member');
+        Flash::message('Glad to have you as a new member');
 
         return Redirect::home();
     }
