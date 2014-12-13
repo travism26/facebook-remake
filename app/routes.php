@@ -5,7 +5,7 @@
  * */
 
 Event::listen('Larabook.Registration.Events.UserRegistered', function($event){
-    dd('Send a user email');
+    //dd('Send a user email');
 });
 
 Route::get('/', [
