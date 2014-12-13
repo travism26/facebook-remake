@@ -4,6 +4,10 @@
  *
  * */
 
+Event::listen('Larabook.Registration.Events.UserRegistered', function($event){
+    dd('Send a user email');
+});
+
 Route::get('/', [
     'as'   => 'home',
     'uses' => 'PagesController@home'
