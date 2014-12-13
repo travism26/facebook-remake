@@ -19,7 +19,6 @@ class UserRepository {
      * @return mixed
      */
     public function save(User $user){
-
         return $user->save();
     }
 } 

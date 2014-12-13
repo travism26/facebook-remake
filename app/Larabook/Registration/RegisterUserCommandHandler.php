@@ -16,8 +16,14 @@ use Larabook\Users\User;
 
 class RegisterUserCommandHandler implements CommandHandler {
 
+    /**
+     * @var UserRepository
+     */
     protected $repository;
 
+    /**
+     * @param UserRepository $repository
+     */
     function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
