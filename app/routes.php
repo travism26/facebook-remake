@@ -4,7 +4,8 @@
  *
  * */
 
-Event::listen('Larabook.Registration.Events.UserRegistered', function($event){
+Event::listen('Larabook.Registration.Events.UserRegistered', function ($event)
+{
     //dd('Send a user email');
 });
 
@@ -22,4 +23,12 @@ Route::get('register', [
 Route::post('register', [
     'as'   => 'register_path',
     'uses' => 'RegistrationController@store'
+]);
+
+/*
+ * Sessions
+ */
+Route::get('login', [
+    'as' => 'login_path',
+    'uses'=> 'SessionsController@create'
 ]);
