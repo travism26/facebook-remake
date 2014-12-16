@@ -1,7 +1,8 @@
-<?php 
+<?php
+
 $I = new FunctionalTester($scenario);
-$I->am('a Larabook');
-$I->wantTo('I want  memberto post status to my profile.');
+$I->am('a Larabook member');
+$I->wantTo('I want member to post status to my profile.');
 
 $I->signIn();
 

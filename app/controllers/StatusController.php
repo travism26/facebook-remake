@@ -1,15 +1,43 @@
 <?php
 
+use Larabook\Core\CommandBus;
+use Larabook\Forms\PublicStatusForm;
+use Larabook\Statuses\PublishStatusCommand;
+use Larabook\Statuses\StatusRepository;
+
 class StatusController extends \BaseController {
 
-	/**
+    use CommandBus;
+
+    /**
+     * @var StatusRepository
+     */
+    protected $statusRepository;
+    /**
+     * @var PublishStatusForm
+     */
+    protected $publishStatusForm;
+
+    /**
+     * @param PublicStatusForm|PublishStatusForm $publishStatusForm
+     * @param StatusRepository $statusRepository
+     */
+    function __construct(PublicStatusForm $publishStatusForm , StatusRepository $statusRepository)
+    {
+        $this->statusRepository = $statusRepository;
+        $this->publishStatusForm = $publishStatusForm;
+    }
+
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		return View::make('statuses.index');
+        $statuses = $this->statusRepository->getAllForUser(Auth::user());
+		return View::make('statuses.index', compact('statuses'));
 	}
 
 
@@ -31,7 +59,15 @@ class StatusController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+
+        $this->publishStatusForm->validate(Input::only('body'));
+        //publish status command a status message
+        $this->execute(
+            new PublishStatusCommand(Input::get('body'), Auth::user()->id)
+        );
+        Flash::success('Your status has been updated');
+        return Redirect::refresh();
+
 	}
 
 
