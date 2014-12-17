@@ -15,6 +15,7 @@ class StatusRepository {
 
     public function getAllForUser(User $user)
     {
+        //return Status::all();
         return User::find($user->id)->statuses;
 
         /*
