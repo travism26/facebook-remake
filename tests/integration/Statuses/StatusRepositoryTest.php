@@ -31,24 +31,14 @@ class StatusRepositoryTest extends \Codeception\TestCase\Test {
         //given i have two users
         $user = TestDummy::times(2)->create('Larabook\Users\User');
         //and status for both of them
-        TestDummy::times(2)->create('Larabook\Statuses\Status', [
-            'user_id' => $user[0]->id,
-            'body'    => 'My status'
-        ]);
-
-        TestDummy::times(2)->create('Larabook\Statuses\Status', [
-            'user_id' => $user[1]->id,
-            'body'    => 'His status'
-        ]);
+        $statuses = TestDummy::times(2)->create('Larabook\Statuses\Status', [ 'user_id' => $user[0]->id]);
+        TestDummy::times(2)->create('Larabook\Statuses\Status', [ 'user_id' => $user[1]->id]);
 
         //when i fetch statues for one user
         $statusesForUser = $this->repo->getAllForUser($user[0]);
 
         //then i should receive only the relevant ones
-
         $this->assertCount(2, $statusesForUser);
-        $this->assertEquals('My status', $statusesForUser[0]->body);
-        $this->assertEquals('My status', $statusesForUser[1]->body);
     }
     /** @test */
     public function it_saves_a_status_for_a_user()

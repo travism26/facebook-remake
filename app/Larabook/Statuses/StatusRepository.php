@@ -16,14 +16,14 @@ class StatusRepository {
     public function getAllForUser(User $user)
     {
         //return Status::all();
-        return User::find($user->id)->statuses;
+        //return User::find($user->id)->statuses->with('user')->latest();
 
         /*
          * The below return statement works however there is a
          * bug in codeception where the tests stay red if you
          * dont call the User::find function...
          */
-        //return $user->statuses;
+        return $user->statuses()->with('user')->latest()->get();
     }
     /**
      * @param Status $status

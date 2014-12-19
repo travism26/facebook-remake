@@ -2,10 +2,11 @@
 
 use Larabook\Statuses\Events\StatusWasPublished;
 use Laracasts\Commander\Events\EventGenerator;
+use Laracasts\Presenter\PresentableTrait;
 
 class Status extends \Eloquent {
 
-    use EventGenerator;
+    use EventGenerator, PresentableTrait;
     /**
      * Fillable fields for the status'
      * @var array
@@ -13,6 +14,12 @@ class Status extends \Eloquent {
     protected $fillable = [
         'body'
     ];
+
+    /**
+     * path to the presenter class.
+     * @var string
+     */
+    protected $presenter = 'Larabook\Statuses\StatusPresenter';
 
     /**
      * A status belongs to a user
