@@ -7,11 +7,12 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 use Larabook\Registration\Events\UserRegistered;
 use Laracasts\Commander\Events\EventGenerator;
 use Eloquent, Hash;
+use Laracasts\Presenter\PresentableTrait;
 
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-    use UserTrait, RemindableTrait, EventGenerator;
+    use UserTrait, RemindableTrait, EventGenerator, PresentableTrait;
 
 
     protected $fillable = ['username', 'email', 'password'];
@@ -22,6 +23,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      * @var string
      */
     protected $table = 'users';
+
+    /**
+     * path to the user presenter.
+     * @var string
+     */
+    protected $presenter = 'Larabook\Users\UserPresenter';
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -67,5 +74,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $user->raise(new UserRegistered($user));
 
         return $user;
+    }
+
+
+    /**
+     * this will return the gravatar link, following DRY rules,
+     * I may remove this function and place it else where.
+     * @return string
+     */
+    public function gravatarLink()
+    {
+        $email = md5($this->email);
+        return "//www.gravatar.com/avatar/{$email}?s=30";
     }
 }
