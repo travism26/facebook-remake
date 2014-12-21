@@ -53,3 +53,8 @@ Route::post('statuses', [
     'as'   => 'status_store',
     'uses' => 'StatusController@store'
 ]);
+
+Route::get('messaging', function ()
+{
+    return View::make('messaging.message');
+});
