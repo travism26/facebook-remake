@@ -11,8 +11,6 @@
         @include('layouts.partials.nav')
         <div class="container">
             @include('flash::message')
-            {{ URL::asset('assets/css/bootstrap.min.css') }}
-
             @yield('content')
         </div>
         <script src="//code.jquery.com/jquery.js"></script>

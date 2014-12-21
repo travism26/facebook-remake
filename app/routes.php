@@ -15,6 +15,16 @@ Route::get('/', [
 ]);
 
 
+
+/*
+ * This route is for the chat thing.
+ */
+//Route::get("/", function()
+//{
+//    return View::make("messaging.index");
+//});
+
+
 Route::get('register', [
     'as'   => 'register_path',
     'uses' => 'RegistrationController@create'

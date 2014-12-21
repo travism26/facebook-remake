@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
     <meta charset="UTF-8" />
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -16,7 +16,7 @@
         >
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6 col-md-offset-3">
                         <h1>Laravel 4 Chat</h1>
                         <table class="table table-striped">
                             @{{#each}}
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6 col-md-offset-3">
                         <div class="input-group">
                             <input
                                 type="text"
@@ -49,29 +49,6 @@
                 </div>
             </div>
         </script>
-        <script
-            type="text/javascript"
-            src="{{ asset("js/libs/jquery-1.10.2.js") }}"
-        ></script>
-        <script
-            type="text/javascript"
-            src="{{ asset("js/libs/handlebars-v2.0.0.js") }}"
-        ></script>
-        <script
-            type="text/javascript"
-            src="{{ asset("js/libs/ember-1.9.0.js") }}"
-        ></script>
-        <script
-            type="text/javascript"
-            src="{{ asset("js/libs/ember.data.1.0.0.js") }}"
-        ></script>
-        <script
-            type="text/javascript"
-            src="{{ asset("js/bootstrap-v3.3.1.js") }}"
-        ></script>
-        <script
-            type="text/javascript"
-            src="{{ asset("js/shared.js") }}"
-        ></script>
+        @include('messaging.partials.jsDependencies')
     </body>
 </html>
