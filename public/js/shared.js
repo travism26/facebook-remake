@@ -18,7 +18,7 @@ App.Message = DS.Model.extend({
     "message"       : DS.attr("string")
 });
 
-App.Store = DS.Store.extend({
+App.ApplicationStore = DS.Store.extend({
     "adapter" : DS.FixtureAdapter.extend()
 });
 
@@ -106,11 +106,10 @@ try {
 
     } else {
 
-        var socket = new WebSocket("ws://127.0.0.1:7778/");
-        var id     = 1;
+        var socket = new WebSocket("ws://social-media.dev.com:8000/messaging")
 
         socket.addEventListener("open", function (e) {
-            // console.log("open: ", e);
+             console.log("open: ", e);
         });
 
         socket.addEventListener("error", function (e) {
