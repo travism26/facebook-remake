@@ -14,7 +14,7 @@ class FunctionalHelper extends \Codeception\Module {
         $email = 'foo@example.com';
         $password = 'foo';
 
-        $this->haveAnAccount(compact('email, password'));
+        $this->haveAnAccount(['username' => 'foobar', 'email' => 'foo@example.com', 'password' => 'foo']);
 
         $I = $this->getModule('Laravel4');
         $I->amOnPage('/login');
