@@ -68,3 +68,5 @@ Route::get('messaging', function ()
 {
     return View::make('messaging.message');
 });
+
+Route::get('users', 'UsersController@index');
