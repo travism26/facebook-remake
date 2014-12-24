@@ -8,6 +8,6 @@ $I->wantTo('list all users who are registered for larabook');
 $I->haveAnAccount(['username' => 'Foo']);
 $I->haveAnAccount(['username' => 'Bar']);
 
-$I->amOnPage('/Users');
+$I->amOnPage('/users');
 $I->see('Foo');
 $I->see('Bar');
