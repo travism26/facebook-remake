@@ -35,8 +35,8 @@ next run `composer dump-autoload` to update the PSR mapping.
 Create a new file in the root directory called: ".env.local.php"
 
 file should contain the following information:
-```<?php
-
+```
+<?php
  return [
      'DB_HOST'     => 'localhost',
      'DB_USERNAME' => '<db_username>',
