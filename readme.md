@@ -20,4 +20,31 @@ In the terminal go to your home directory type `cd ~` and then clone the git rep
 
 ### Configuring Homestead
 
-To be completed :)
+Follow the instructions on the Laravel [Homestead](http://laravel.com/docs/4.2/homestead) section.
+
+### environment setup
+
+once you clone this repo you will need to run a `composer update` to import all dependencies.
+
+next run `composer dump-autoload` to update the PSR mapping.
+
+### Database setup
+
+#### Mapping the database
+
+Create a new file in the root directory called: ".env.local.php"
+
+file should contain the following information:
+`<?php
+
+ return [
+     'DB_HOST'     => 'localhost',
+     'DB_USERNAME' => '<db_username>',
+     'DB_PASSWORD' => '<db_pass>',
+     'DB_NAME'     => '<db_name>'
+ ];
+ `
+
+#### Migrate the database
+
+from within the vagrant VM run `php artisan migrate`
