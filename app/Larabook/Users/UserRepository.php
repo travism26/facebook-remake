@@ -27,7 +27,7 @@ class UserRepository {
      * @param int $howMany
      * @return mixed
      */
-    public function getPaginated($howMany = 100)
+    public function getPaginated($howMany = 25)
     {
         return User::simplePaginate($howMany);
     }
