@@ -18,7 +18,8 @@ class UserRepository {
      * @param User $user
      * @return mixed
      */
-    public function save(User $user){
+    public function save(User $user)
+    {
         return $user->save();
     }
 
@@ -29,6 +30,19 @@ class UserRepository {
      */
     public function getPaginated($howMany = 25)
     {
-        return User::simplePaginate($howMany);
+        return User::orderBy('username', 'asc')->Paginate($howMany);
+    }
+
+    /**
+     * find the user with the passed in username
+     * @param $username
+     * @return mixed
+     */
+    public function findByUsername($username)
+    {
+        return User::with(['statuses' => function ($query)
+        {
+            $query->latest();
+        }])->whereUsername($username)->first();
     }
 } 

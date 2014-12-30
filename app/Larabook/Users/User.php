@@ -87,4 +87,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $email = md5($this->email);
         return "//www.gravatar.com/avatar/{$email}?s=30";
     }
+
+    /**
+     * determin is the given user is the currently logged
+     * in user.
+     * @param User $user
+     * @return bool
+     */
+    public function is(User $user)
+    {
+        return $this->username == $user->username;
+    }
 }

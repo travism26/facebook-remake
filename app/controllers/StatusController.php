@@ -66,7 +66,7 @@ class StatusController extends \BaseController {
             new PublishStatusCommand(Input::get('body'), Auth::user()->id)
         );
         Flash::success('Your status has been updated');
-        return Redirect::refresh();
+        return Redirect::back();
 
 	}
 
