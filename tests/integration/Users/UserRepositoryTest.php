@@ -37,7 +37,26 @@ class UserRepositoryTest extends \Codeception\TestCase\Test {
         $results->getItems();*/
 
     }
-    protected function _after()
+
+    /**
+     * @test
+     */
+    public function it_finds_a_user_statuses_by_their_username()
+    {
+        //given
+        $statuses = TestDummy::times(3)->create('Larabook\Statuses\Status');
+        $username = $statuses[0]->user->username;
+
+        //when
+        $user = $this->repo->findByUsername($username);
+
+        //then
+
+        $this->assertEquals($username, $user->username);
+        $this->assertCount(3, $user->statuses);
+    }
+
+    function _after()
     {
 
     }
