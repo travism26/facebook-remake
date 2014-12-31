@@ -14,16 +14,6 @@ Route::get('/', [
     'uses' => 'PagesController@home'
 ]);
 
-
-/*
- * This route is for the chat thing.
- */
-//Route::get("/", function()
-//{
-//    return View::make("messaging.index");
-//});
-
-
 Route::get('register', [
     'as'   => 'register_path',
     'uses' => 'RegistrationController@create'
@@ -55,12 +45,12 @@ Route::get('logout', [
  */
 Route::get('statuses', [
     'as'   => 'statuses_path',
-    'uses' => 'StatusController@index'
+    'uses' => 'StatusesController@index'
 ]);
 
 Route::post('statuses', [
     'as'   => 'status_store',
-    'uses' => 'StatusController@store'
+    'uses' => 'StatusesController@store'
 ]);
 
 Route::get('messaging', function ()
@@ -77,3 +67,8 @@ Route::get('@{username}', [
     'as'   => 'profile_path',
     'uses' => 'UsersController@show'
 ]);
+
+Route::get('api-test', function ()
+{
+    return View::make('messaging.api-test');
+});

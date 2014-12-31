@@ -2,11 +2,8 @@
 
 use Larabook\Forms\RegistrationForm;
 use Larabook\Registration\RegisterUserCommand;
-use Larabook\Core\CommandBus;
 
 class RegistrationController extends \BaseController {
-
-    use CommandBus;
 
     /*
      * @var RegistrationForm
@@ -32,13 +29,23 @@ class RegistrationController extends \BaseController {
 
     public function store()
     {
+        //validate the user input
         $this->registrationForm->validate(Input::all());
 
-        extract(Input::only('username', 'email','password'));
+        /*
+         * This code has been abstracted in the `CommanderTrait` class
+         * Laracasts\Commander\CommanderTrait
+         */
+//        extract(Input::only('username', 'email','password'));
+//
+//        $user = $this->execute(
+//            new RegisterUserCommand($username, $email, $password
+//            ));
 
-        $user = $this->execute(
-            new RegisterUserCommand($username, $email, $password
-            ));
+        //resolving from the IOC container
+        $this->execute('Larabook\Registration\RegisterUserCommand');
+        //calling the ::class method will essentially return namespace.
+        $user = $this->execute(RegisterUserCommand::class);
 
         Auth::login($user);
 
