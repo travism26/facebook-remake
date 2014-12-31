@@ -51,7 +51,6 @@ class UserRepositoryTest extends \Codeception\TestCase\Test {
         $user = $this->repo->findByUsername($username);
 
         //then
-
         $this->assertEquals($username, $user->username);
         $this->assertCount(3, $user->statuses);
     }
