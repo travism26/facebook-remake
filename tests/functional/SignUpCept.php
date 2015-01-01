@@ -6,7 +6,7 @@ $I->amOnPage('/');
 $I->click('Register');
 $I->seeCurrentUrlEquals('/register');
 $I->fillField('Username:', 'JohnDoe');
-$I->fillField('Email:', 'john@example.com');
+$I->fillField('Email:', 'john1doe@example.com');
 $I->fillField('Password:', 'demo');
 $I->fillField('Password_confirmation:', 'demo');
 $I->click('Sign up');
