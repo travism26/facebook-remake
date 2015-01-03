@@ -72,3 +72,12 @@ Route::get('api-test', function ()
 {
     return View::make('messaging.api-test');
 });
+
+/*
+ * this will be the follow route to the the following
+ * controller. temp pointing to users controller.
+ */
+Route::get('/', [
+    'as' =>'following_path',
+    'uses' => 'UsersController@index'
+]);
