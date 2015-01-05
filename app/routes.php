@@ -77,7 +77,13 @@ Route::get('api-test', function ()
  * this will be the follow route to the the following
  * controller. temp pointing to users controller.
  */
-Route::get('/', [
-    'as' =>'following_path',
-    'uses' => 'UsersController@index'
+Route::post('follows', [
+    'as' =>'follows_path',
+    'uses' => 'FollowsController@store'
+]);
+
+
+Route::delete('follows/{id}', [
+    'as' =>'follow_path',
+    'uses' => 'FollowsController@destroy'
 ]);

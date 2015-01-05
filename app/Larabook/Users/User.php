@@ -85,6 +85,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function gravatarLink()
     {
         $email = md5($this->email);
+
         return "//www.gravatar.com/avatar/{$email}?s=30";
     }
 
@@ -96,8 +97,33 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      */
     public function is($user)
     {
-        if(is_null($user)) return false;
+        if (is_null($user)) return false;
 
         return $this->username == $user->username;
+    }
+/*
+    public function follow($user)
+    {
+        $this->follows[] = $user;
+        return $user->follows()->attach($userIdToFollow);
+    }
+ */
+
+    public function follows()
+    {
+        return $this->belongsToMany(self::class, 'follows', 'follower_id', 'followed_id')
+                    ->withTimestamps();
+    }
+
+    /**
+     * determine if current user follows another user
+     * @param User $otherUser
+     * @return bool
+     */
+    public function isFollowedBy(User $otherUser)
+    {
+        $idsWhoOtherUserFollows = $otherUser->follows()->lists('followed_id');
+
+        return in_array($this->id, $idsWhoOtherUserFollows);
     }
 }
