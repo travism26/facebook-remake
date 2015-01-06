@@ -15,9 +15,10 @@
         <title>Laravel 4 Chat</title>
     </head>
     <body>
+    
         <div id="content"></div>
         <script type="text/jsx;harmony=true">
-            @include('messaging.partials.comments')
+            {{--@include('messaging.partials.comments')--}}
             {{--@include('messaging.partials.todo_list')--}}
             {{--@include('messaging.partials.markdown_editor')--}}
         </script>
