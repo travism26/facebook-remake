@@ -6,7 +6,9 @@
             <h1>{{ $user->username }}</h1>
             @include('users.partials.avatar', ['size' => 100])
 
-            @include('users.partials.following-form')
+            @unless($user->is($currentUser))
+                @include('users.partials.following-form')
+            @endif
         </div>
 
         <div class="col-md-6">

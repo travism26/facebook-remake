@@ -28,9 +28,9 @@ class FollowsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($idOfUserToUnfollow)
 	{
-		//
+		Auth::user()->follows()->detach($idOfUserToUnfollow);
 	}
 
 
