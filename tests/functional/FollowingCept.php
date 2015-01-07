@@ -15,10 +15,14 @@ $I->click('OtherUser');
 $I->seeCurrentUrlEquals('/@OtherUser');
 //$I->see('OtherUser');
 
-$I->click('Follow');
+$I->click('Follow OtherUser');
 $I->seeCurrentUrlEquals('/@OtherUser');
-$I->see('You are following OtherUser');
-$I->dontSee('Follow OtherUser');
+//$I->see('You are following OtherUser');
+$I->see('Unfollow OtherUser');
+
+$I->click('Unfollow OtherUser');
+$I->seeCurrentUrlEquals('/@OtherUser');
+$I->see('Follow OtherUser');
 
 //expectations
 

@@ -29,21 +29,12 @@ class RegistrationController extends \BaseController {
 
     public function store()
     {
+        //$input = Input::only('username', 'email', 'password', 'password_confirmation');
         //validate the user input
         $this->registrationForm->validate(Input::all());
 
-        /*
-         * This code has been abstracted in the `CommanderTrait` class
-         * Laracasts\Commander\CommanderTrait
-         */
-//        extract(Input::only('username', 'email','password'));
-//
-//        $user = $this->execute(
-//            new RegisterUserCommand($username, $email, $password
-//            ));
-
         //resolving from the IOC container
-        $this->execute('Larabook\Registration\RegisterUserCommand');
+        //$this->execute('Larabook\Registration\RegisterUserCommand');
         //calling the ::class method will essentially return namespace.
         $user = $this->execute(RegisterUserCommand::class);
 

@@ -10,7 +10,11 @@
 
                 <div class="media-body">
                     <h1 class="media-heading">{{ $user->username }}</h1>
-                    <p class="text-muted">{{ $statusCount = $user->statuses->count() }} {{ str_plural('Status', $statusCount) }}</p>
+                    <ul class="list-inline">
+                        <li>{{ $user->present()->statusCount }}</li>
+                        <li>{{ $user->present()->followerCount }}</li>
+                    </ul>
+                    <p class="text-muted"></p>
                     @foreach($user->followers as $follower)
                         @include('users.partials.avatar', ['size' => 25, 'user' => $follower])
                     @endforeach
