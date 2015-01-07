@@ -67,4 +67,16 @@ class UserRepository {
         return $user->follows()->attach($userIdToFollow);
         //$user->follow($userIdToFollow);
     }
+
+    /**
+     * Unfollow a larabook user
+     * @param $userIdToUnFollow
+     * @param User $user
+     * @internal param $userIdToFollow
+     * @return mixed
+     */
+    public function unfollow($userIdToUnFollow, User $user)
+    {
+        return $user->follows()->detach($userIdToUnFollow);
+    }
 } 
