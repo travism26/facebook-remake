@@ -55,6 +55,16 @@ class UserRepositoryTest extends \Codeception\TestCase\Test {
         $this->assertCount(3, $user->statuses);
     }
 
+    /** @test */
+    public function it_follows_another_user()
+    {
+        //given I have two users
+
+        $users = TestDummy::times(2)->create('Larabook\Users\User');
+
+        // and one user follows another user
+        
+    }
     function _after()
     {
 
