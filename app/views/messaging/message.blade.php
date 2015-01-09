@@ -15,7 +15,6 @@
         <title>Laravel 4 Chat</title>
     </head>
     <body>
-    
         <div id="content"></div>
         <script type="text/jsx;harmony=true">
             @include('messaging.partials.comments')

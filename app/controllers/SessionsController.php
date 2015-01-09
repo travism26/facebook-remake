@@ -56,26 +56,29 @@ class SessionsController extends \BaseController {
         $this->signInForm->validate($formData);
 
         //if its valid sign them in
-        if (! Auth::attempt($formData))
+        if (!Auth::attempt($formData))
         {
             //redirect to /statuses
             //statuses
             Flash::message('We were unable to sign you in. Please check your credentials and try again!');
+
             return Redirect::back()->withInput();
 
         }
-            Flash::message('Welcome back!');
+        Flash::message('Welcome back!');
 
-            return Redirect::intended('/statuses');
+        return Redirect::intended('/statuses');
     }
 
     /**
      * log a user out of the application
      * @return mixed
      */
-    public function destroy(){
+    public function destroy()
+    {
         Auth::logout();
         Flash::message('Successfully logged out');
+
         return Redirect::home();
     }
 }
