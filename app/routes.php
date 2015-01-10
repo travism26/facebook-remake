@@ -4,10 +4,10 @@
  *
  * */
 
-/*Event::listen('Larabook.Registration.Events.UserRegistered', function ($event)
+Event::listen('Larabook.Registration.Events.UserRegistered', function ()
 {
-    //dd('Send a user email');
-});*/
+    dd('Send a user email');
+});
 
 Route::get('/', [
     'as'   => 'home',
