@@ -125,7 +125,8 @@ return array(
         'Laracasts\Commander\CommanderServiceProvider',
         'Laracasts\Validation\ValidationServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
-        'Sigep\LaravelReactJS\ReactJSServiceProvider'
+        'Sigep\LaravelReactJS\ReactJSServiceProvider',
+        'Larabook\Providers\EventServiceProvider'
 
     ),
 
