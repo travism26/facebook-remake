@@ -7,6 +7,7 @@
  */
 
 namespace Larabook\Mailers;
+
 use Larabook\Users\User;
 
 

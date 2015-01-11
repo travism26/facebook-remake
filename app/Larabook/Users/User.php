@@ -101,11 +101,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
         return $this->username == $user->username;
     }
-/*
-    public function follow($user)
-    {
-        $this->follows[] = $user;
-        return $user->follows()->attach($userIdToFollow);
-    }
- */
+    /*
+        public function follow($user)
+        {
+            $this->follows[] = $user;
+            return $user->follows()->attach($userIdToFollow);
+        }
+     */
 }

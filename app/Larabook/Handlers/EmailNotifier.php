@@ -1,12 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: travismartin
- * Date: 15-01-10
- * Time: 12:46 PM
- */
-
-namespace Larabook\Handlers;
+<?php namespace Larabook\Handlers;
 
 
 use Larabook\Mailers\UserMailer;
@@ -20,11 +12,17 @@ class EmailNotifier extends EventListener {
      */
     private $mailer;
 
+    /**
+     * @param UserMailer $mailer
+     */
     function __construct(UserMailer $mailer)
     {
         $this->mailer = $mailer;
     }
 
+    /**
+     * @param UserRegistered $event
+     */
     public function whenUserHasRegistered(UserRegistered $event)
     {
         $this->mailer->sendWelcomeMessageTo($event->user);
