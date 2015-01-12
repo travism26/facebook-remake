@@ -2,7 +2,7 @@
 
 
 use Larabook\Mailers\UserMailer;
-use Larabook\Registration\Events\UserRegistered;
+use Larabook\Registration\Events\UserHasRegistered;
 use Laracasts\Commander\Events\EventListener;
 
 class EmailNotifier extends EventListener {
@@ -21,9 +21,9 @@ class EmailNotifier extends EventListener {
     }
 
     /**
-     * @param UserRegistered $event
+     * @param UserHasRegistered $event
      */
-    public function whenUserHasRegistered(UserRegistered $event)
+    public function whenUserHasRegistered(UserHasRegistered $event)
     {
         $this->mailer->sendWelcomeMessageTo($event->user);
     }
