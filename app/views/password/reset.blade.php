@@ -12,7 +12,7 @@
             <!-- Email Form Input -->
             <div class="form-group">
                 {{ Form::label('email', 'Email:') }}
-                {{ Form::text ('email', null, ['class'=> 'form-control']) }}
+                {{ Form::text ('email', null, ['class'=> 'form-control', 'required']) }}
             </div>
 
             <!-- Password Form Input -->
@@ -25,6 +25,10 @@
             <div class="form-group">
                 {{ Form::label('password confirmation', 'Password_confirmation:') }}
                 {{ Form::password ('password_confirmation', ['class'=> 'form-control', 'required']) }}
+            </div>
+            <!-- Submit Form Input-->
+            <div class="form-group">
+                {{ Form::submit('Submit', ['class' => 'btn btn-primary form-control']) }}
             </div>
             {{ Form::close() }}
         </div>
