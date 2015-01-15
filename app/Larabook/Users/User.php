@@ -108,4 +108,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             return $user->follows()->attach($userIdToFollow);
         }
      */
+
+    public function comments()
+    {
+        return $this->hasMany('Larabook\Statuses\Comment');
+    }
 }
