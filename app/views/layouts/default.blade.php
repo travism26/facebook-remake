@@ -19,6 +19,17 @@
         <script href="{{ URL::asset('js/libs/jquery-1.11.1.min.js') }}"></script>
         <script href="{{ URL::asset('js/libs/ember.js') }}"></script>
         <script href="{{ URL::asset('js/libs/handlebars-v1.3.0.js') }}"></script>
+
+        <script>
+            $('.comments__create-form').on('keydown', function(e)
+            {
+                if (e.keyCode == 13)
+                {
+                    e.preventDefault();
+                    $(this).submit();
+                }
+            });
+        </script>
         {{--<script>$('#flash-overlay-modal').modal();</script>--}}
     </body>
 </html>
