@@ -33,11 +33,17 @@ class StatusesController extends \BaseController {
      */
     public function index()
     {
-        $statuses = $this->statusRepository->getFeedForUser(Auth::user());
+        if (Auth::user())
+        {
+            $statuses = $this->statusRepository->getFeedForUser(Auth::user());
 
-        return View::make('statuses.index', compact('statuses'));
+            return View::make('statuses.index', compact('statuses'));
+        } else
+        {
+            return Redirect::route('home');
+        }
+
     }
-
 
     /**
      * Show the form for creating a new resource.

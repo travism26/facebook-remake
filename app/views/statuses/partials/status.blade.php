@@ -3,7 +3,6 @@
         @include('users.partials.avatar', ['user' => $status->user])
     </div>
 
-
     <div class="media-body">
         <h4 class="media-heading status-media-heading">{{ $status->user->username }}</h4>
         <p><small class="status-media-time">{{ $status->present()->timeSincePublished() }}</small></p>
@@ -20,10 +19,10 @@
     </div>
     {{ Form::close() }}
 @endif
-@if($comments = $status->comments)
+@unless($status->comments->isEmpty())
     <div class="comments">
-        @foreach($comments as $comment)
+        @foreach($status->comments as $comment)
             @include('statuses.partials.comment')
         @endforeach
     </div>
-@endif
+@endunless
