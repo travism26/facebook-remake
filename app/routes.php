@@ -99,8 +99,12 @@ Route::delete('follows/{id}', [
 
 Route::controller('password', 'RemindersController');
 
+ Route::get('github/{username}', [
+    'as' => 'github_api',
+    'uses' => 'ApiController@show'
+]);
+
 Route::get('github', [
     'as' => 'github_api',
     'uses' => 'ApiController@index'
 ]);
-
