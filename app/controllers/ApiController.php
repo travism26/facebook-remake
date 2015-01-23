@@ -10,7 +10,7 @@ class ApiController extends \BaseController {
      */
     public function index()
     {
-        return View::make('api.github');
+        return View::make('api.index');
     }
 
     /**
@@ -42,14 +42,12 @@ class ApiController extends \BaseController {
      * @return Response
      * @internal param int $id
      */
-    public function show($username = "EPIC")
+    public function show($username = 'travism26')
     {
         // get the user and send request to github
         // url: "https://api.github.com/users/travism26/repos",
-        $url = "https://api.github.com/users/travism26/repos";
-        // Get cURL resource
+        $url = "https://api.github.com/users/" . $username . "/repos";
         $curl = curl_init();
-// Set some options - we are passing in a useragent too here
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_URL            => $url,
@@ -58,10 +56,11 @@ class ApiController extends \BaseController {
 // Send the request & save response to $resp
         $resp = curl_exec($curl);
         $responseObj = json_decode($resp);
-        dd($responseObj);
+        //dd($responseObj);
 // Close request to clear up some resources
         curl_close($curl);
-        //return View::make('api.github')->with('username', $username);
+
+        return View::make('api.github')->with('repo', $responseObj);
     }
 
     /**
