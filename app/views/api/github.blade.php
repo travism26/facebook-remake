@@ -12,16 +12,16 @@
     @if($username != null)
         <h1>Welcome {{ $username }}</h1>
 
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
-            $("#btn_get_repos").click(function() {
+        <script href="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+            $("#btn_get_repos").click(function () {
                 $.ajax({
                     type: "GET",
                     url: "https://api.github.com/users/travism26/repos",
                     dataType: "json",
-                    success: function(result) {
-                        for( var i in result ) {
+                    success: function (result) {
+                        for (var i in result) {
                             $("#repo_list").append(
-                                    "<li><a href='" + result[i].html_url + "' target='_blank'>" +
+                                    "<li><a href='" + "trest" + "' target='_blank'>" +
                                     result[i].name + "</a></li>"
                             );
                             console.log("i: " + i);
