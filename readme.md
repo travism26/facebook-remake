@@ -16,7 +16,24 @@ In the terminal type `vagrant box add laravel/homestead`
 
 please refer to the [laravel documentation](http://laravel.com/docs/4.2/homestead) if you have any issues.
 
+For Mac:
 In the terminal go to your home directory type `cd ~` and then clone the git repo `git clone https://github.com/laravel/homestead.git Homestead`
+
+Windows: TBC
+:( 
+
+## Installation TBC
+
+Here are the steps for installation on a local machine.
+
+1. Change directory into the Homestead Folder `cd ~/Homestead/Projects` (`mkdir Projects` if Projects doesn't exist).
+2. Clone this repository: `git clone https://github.com/travism26/facebook-remake.git`.
+3. Add the path for the cloned repository to the `Homestead.yml` file under the `folders` list.
+4. Add a site `larabook` for the laravel.io repository to the `Homestead.yml` file under the `sites` list.
+5. Run `vagrant provision` in your Homestead folder.
+6. Create a database in Homestead called `larabook`.
+7. Run `composer install --dev` and `php artisan migrate --seed --env=local`.
+8. Add `128.0.0.1 larabook.dev` to your computer's `hosts` file.
 
 ### Configuring Homestead
 
