@@ -2,6 +2,10 @@
 
 class ApiController extends \BaseController {
 
+    public function __construct()
+    {
+        
+    }
     /**
      * Display a listing of the resource.
      * GET /api
@@ -53,11 +57,11 @@ class ApiController extends \BaseController {
             CURLOPT_URL            => $url,
             CURLOPT_USERAGENT      => 'Codular Sample cURL Request'
         ));
-// Send the request & save response to $resp
+
+        // Send the request & save response to $resp
         $resp = curl_exec($curl);
         $responseObj = json_decode($resp);
-        //dd($responseObj);
-// Close request to clear up some resources
+        // Close request to clear up some resources
         curl_close($curl);
 
         return View::make('api.github')->with('repo', $responseObj);
