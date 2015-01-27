@@ -11,6 +11,7 @@ namespace Larabook\api;
 
 class githubWrapper {
 
+    protected $instance;
     protected $username;
     protected $userData;
 
@@ -21,7 +22,10 @@ class githubWrapper {
 
     public function getInstance()
     {
+        if (!isset(self::$instance))
+        {
 
+        }
     }
 
     /*
