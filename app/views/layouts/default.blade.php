@@ -16,10 +16,6 @@
         <script src="//code.jquery.com/jquery.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <!-- ... additional lines truncated for brevity ... -->
-        <script href="{{ URL::asset('js/libs/jquery-1.11.1.min.js') }}"></script>
-        <script href="{{ URL::asset('js/libs/ember.js') }}"></script>
-        <script href="{{ URL::asset('js/libs/handlebars-v1.3.0.js') }}"></script>
-
         <script>
             $('.comments__create-form').on('keydown', function(e)
             {

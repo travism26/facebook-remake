@@ -54,7 +54,7 @@ Route::post('statuses', [
 ]);
 
 Route::post('statuses/{id}/comments', [
-    'as' => 'comment_path',
+    'as'   => 'comment_path',
     'uses' => 'CommentsController@store'
 ]);
 
@@ -79,13 +79,13 @@ Route::get('@{username}', [
  * controller. temp pointing to users controller.
  */
 Route::post('follows', [
-    'as' =>'follows_path',
+    'as'   => 'follows_path',
     'uses' => 'FollowsController@store'
 ]);
 
 
 Route::delete('follows/{id}', [
-    'as' =>'follow_path',
+    'as'   => 'follow_path',
     'uses' => 'FollowsController@destroy'
 ]);
 
@@ -95,13 +95,13 @@ Route::delete('follows/{id}', [
 
 Route::controller('password', 'RemindersController');
 
- Route::get('github/{username}', [
-    'as' => 'github_api',
+Route::get('github/{username}', [
+    'as'   => 'github_api',
     'uses' => 'ApiController@show'
 ]);
 
 Route::get('github', [
-    'as' => 'github_api',
+    'as'   => 'github_api',
     'uses' => 'ApiController@index'
 ]);
 
@@ -113,7 +113,7 @@ Route::get('api-test', function ()
     return View::make('messaging.api-test');
 });
 
-Route::get('maps', function ()
-{
-    return View::make('messaging.google-maps');
-});
+Route::get('maps', [
+    'as'   => 'google_maps',
+    'uses' => 'ApiController@google'
+]);

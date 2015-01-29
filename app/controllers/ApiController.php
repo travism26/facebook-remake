@@ -82,13 +82,13 @@ class ApiController extends \BaseController {
     /**
      * Update the specified resource in storage.
      * PUT /api/{id}
-     *
-     * @param  int $id
      * @return Response
+     * @internal param int $id
      */
-    public function update($id)
+    public function google()
     {
-        //
+        $authCode = "AIzaSyBq0-11FD2K0CJtw4QEw5EKhzKpivs9Lpw";
+        return View::make('messaging.google-maps')->with('authCode', $authCode);
     }
 
     /**
