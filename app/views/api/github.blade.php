@@ -14,7 +14,6 @@
         </div>
     @endif
 
-
     <hr>
     <br>
     <div class="row">

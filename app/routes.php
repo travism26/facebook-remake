@@ -73,10 +73,6 @@ Route::get('@{username}', [
     'uses' => 'UsersController@show'
 ]);
 
-Route::get('api-test', function ()
-{
-    return View::make('messaging.api-test');
-});
 
 /*
  * this will be the follow route to the the following
@@ -108,3 +104,16 @@ Route::get('github', [
     'as' => 'github_api',
     'uses' => 'ApiController@index'
 ]);
+
+/*
+ * travis custom stuff
+ */
+Route::get('api-test', function ()
+{
+    return View::make('messaging.api-test');
+});
+
+Route::get('maps', function ()
+{
+    return View::make('messaging.google-maps');
+});
