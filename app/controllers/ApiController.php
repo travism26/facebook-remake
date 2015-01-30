@@ -88,7 +88,7 @@ class ApiController extends \BaseController {
     public function google()
     {
         $authCode = "AIzaSyBq0-11FD2K0CJtw4QEw5EKhzKpivs9Lpw";
-        return View::make('messaging.google-maps')->with('authCode', $authCode);
+        return View::make('messaging.google-maps')->with('API_KEY', $authCode);
     }
 
     /**
