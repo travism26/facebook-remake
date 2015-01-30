@@ -1,14 +1,13 @@
 @extends('layouts.default')
 @section('content')
-    <style>
-        html, body, #map-canvas {
-            height: 100%;
-            margin: 0px;
-            padding: 0px
-        }
+
+    <style type="text/css">
+        html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
-    <script>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?sensor=SET_TO_TRUE_OR_FALSE">
+    </script>
+    <script type="text/javascript">
         var map;
         function initialize() {
             var mapOptions = {
@@ -20,7 +19,6 @@
         }
 
         google.maps.event.addDomListener(window, 'load', initialize);
-
     </script>
-<div id="map-canvas"></div>
+    <div id="map-canvas"></div>
 @stop
