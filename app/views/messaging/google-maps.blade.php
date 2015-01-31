@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,17 @@
         var marker;
         var map;
 
+        /**
+         * Data for the markers consisting of a name, a LatLng and a zIndex for
+         * the order in which these markers should display on top of each
+         * other.
+         */
+        var events = [
+            ['Fredericton', 45.9500, -66.6667, 3],
+            ['Gesgapegiag', 48.199, -65.923, 4],
+            ['Saint John', 45.2796, -66.0628, 2],
+            ['Miramichi', 47.0225, -65.5089, 1]
+        ];
         function initialize() {
             var mapOptions = {
                 center: newBrunswick,
@@ -22,15 +34,25 @@
             };
             map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
-            marker = new google.maps.Marker({
-                map:        map,
-                draggable:  true,
-                animation:  google.maps.Animation.DROP,
-                position:   newBrunswick
-            });
+            setMarkers(map, events);
             google.maps.event.addListener(marker, 'click', toggleBounce);
         }
 
+        function setMarkers(map, locations){
+
+            for( var i =0; i < locations.length; i++){
+                var event = locations[i];
+                var eventLatLng = new google.maps.LatLng(event[1], event[2]);
+                marker = new google.maps.Marker({
+                    map:        map,
+                    draggable:  true,
+                    animation:  google.maps.Animation.DROP,
+                    position:   eventLatLng,
+                    title:      event[0],
+                    zIndex:     event[3]
+                });
+            }
+        }
         function toggleBounce()
         {
             if(marker.getAnimation() != null)
