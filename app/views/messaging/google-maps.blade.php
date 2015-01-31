@@ -26,7 +26,7 @@
         //var unavailabledates = $.parseJSON('[{"Location":"Fredericton","latitude":"45.9500","longitude":"-66.6667","zIndex":"3"},{"Location":"Gesgapegiag","latitude":"48.199","longitude":"-65.923","zIndex":"4"}]');
         var test = JSON.parse('{{ json_encode($events) }}');
         //for(var i =0; i<2; i++){
-            document.write(test[0].Location);
+        document.write(test[0].Location);
         //}
         var events = [
             ['Fredericton', 45.9500, -66.6667, 3],

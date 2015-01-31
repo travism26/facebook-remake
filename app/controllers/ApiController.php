@@ -93,12 +93,13 @@ class ApiController extends \BaseController {
 		];
 		 */
 		//AUTH code not working...might need to open a support ticket.
-		$authCode  = "AIzaSyBq0-11FD2K0CJtw4QEw5EKhzKpivs9Lpw";
-		$locations = array([
-			'Location'  => 'Fredericton',
-			'latitude'  => '45.9500',
-			'longitude' => '-66.6667',
-			'zIndex'    => '3'
+		$authCode = "AIzaSyBq0-11FD2K0CJtw4QEw5EKhzKpivs9Lpw";
+		$locations= array(
+			[
+				'Location'  => 'Fredericton',
+				'latitude'  => '45.9500',
+				'longitude' => '-66.6667',
+				'zIndex'    => '3'
 			],
 			[
 				'Location'  => 'Gesgapegiag',
@@ -107,7 +108,8 @@ class ApiController extends \BaseController {
 				'zIndex'    => '4'
 			]
 		);
-		$location_encoded =  json_encode($locations);
+		$location_encoded = json_encode( $locations );
+
 		//dd($location_encoded);
 		return View::make( 'messaging.google-maps' )->with( 'events', $locations );
 	}
