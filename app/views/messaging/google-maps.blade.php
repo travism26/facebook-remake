@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +6,9 @@
     </style>
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js">
+    </script>
+    <script
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
     </script>
     <script type="text/javascript">
         //locations
@@ -21,6 +23,11 @@
          * the order in which these markers should display on top of each
          * other.
          */
+        //var unavailabledates = $.parseJSON('[{"Location":"Fredericton","latitude":"45.9500","longitude":"-66.6667","zIndex":"3"},{"Location":"Gesgapegiag","latitude":"48.199","longitude":"-65.923","zIndex":"4"}]');
+        var test = JSON.parse('{{ json_encode($events) }}');
+        //for(var i =0; i<2; i++){
+        document.write(test[0].Location);
+        //}
         var events = [
             ['Fredericton', 45.9500, -66.6667, 3],
             ['Gesgapegiag', 48.199, -65.923, 4],
@@ -64,10 +71,14 @@
             }
         }
         google.maps.event.addDomListener(window, 'load', initialize);
+
     </script>
 </head>
 <body>
+<div class="row">{{ $location_encoded =  json_encode($events); }}</div>
 <div id="map-canvas"></div>
-"https://maps.googleapis.com/maps/api/js?key={{ $API_KEY }}"
+"https://maps.googleapis.com/maps/api/js?key=travis_api_KEY"
 </body>
 </html>
+
+
