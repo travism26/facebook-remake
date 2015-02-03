@@ -23,10 +23,13 @@ class Maps extends Migration {
 			$table->boolean('visible');
 			$table->integer('zIndex');
 			$table->text('description');
+			$table->date('start_date');
+			$table->date('end_date');
+			$table->integer('user_id')->index();
+			$table->timestamps();
 //			$table->integer('')->index();
 //			$table->integer('user_id')->index();
 //			$table->text('body');
-//			$table->timestamps();
 		});
 	}
 

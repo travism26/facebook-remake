@@ -16,6 +16,7 @@ class FollowsController extends \BaseController {
         // id to the user to follow
         // id of the auth user.
         $input = array_add(Input::get(), 'userId', Auth::id());
+        //dd($input);
         $this->execute(FollowUserCommand::class, $input);
 
         Flash::success('You are now following this user.');

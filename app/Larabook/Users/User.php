@@ -79,7 +79,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     /**
      * this will return the gravatar link, following DRY rules,
-     * I may remove this function and place it else where.
+     * I may remove this funcion and place it else where.
      * @return string
      */
     public function gravatarLink()

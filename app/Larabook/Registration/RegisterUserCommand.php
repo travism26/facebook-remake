@@ -22,7 +22,6 @@ class RegisterUserCommand {
         $this->email = $email;
         $this->password = $password;
         $this->username = $username;
-
     }
 
 } 
