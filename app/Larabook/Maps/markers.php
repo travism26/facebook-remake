@@ -1,6 +1,6 @@
-<?php
+<?php namespace Larabook\Maps;
 
-namespace Larabook\Maps;
+use Eloquent, Hash;
 
 class markers extends Eloquent {
 
