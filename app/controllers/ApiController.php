@@ -1,6 +1,10 @@
 <?php
 
+//use Markers;
+
 class ApiController extends \BaseController {
+
+	protected $markers = 'Larabook\Maps\markers';
 
 	public function __construct() {
 
@@ -108,6 +112,9 @@ class ApiController extends \BaseController {
 				'zIndex'    => '4'
 			]
 		);
+
+		$event = $this->markers::all();
+		dd($event);
 		//$location_encoded = json_encode( $locations );
 
 		//dd($location_encoded);

@@ -34,7 +34,6 @@ class RegisterUserCommandHandler implements CommandHandler {
 
     /**
      * Handle the command
-     *
      * @param $command
      * @return mixed
      */

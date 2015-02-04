@@ -59,7 +59,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     /**
      * register a new user
-     *
      * @param $username
      * @param $email
      * @param $password
@@ -68,8 +67,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public static function register($username, $email, $password)
     {
         $user = new static(compact('username', 'email', 'password'));
-
-        //raise an event send an email or update reporting.
 
         $user->raise(new UserHasRegistered($user));
 
@@ -98,9 +95,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function is($user)
     {
         if (is_null($user)) return false;
-
         return $this->username == $user->username;
     }
+
     /*
         public function follow($user)
         {

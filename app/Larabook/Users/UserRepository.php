@@ -14,7 +14,6 @@ class UserRepository {
 
     /**
      * Persist a user
-     *
      * @param User $user
      * @return mixed
      */
