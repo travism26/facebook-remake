@@ -8,9 +8,9 @@ class markers extends Eloquent {
 
     protected $table = 'markers';
 
-
     public function getMarkers()
     {
+        //return markers::all()->toJson();
         return markers::all()->toArray();
         //return markers::findOrFail(1);
     }

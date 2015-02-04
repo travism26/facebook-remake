@@ -125,11 +125,11 @@ class ApiController extends \BaseController {
         );
 
         $event = $this->markers->getMarkers();
-        dd($event);
+        //dd($event);
         //$location_encoded = json_encode( $locations );
 
         //dd($location_encoded);
-        return View::make('messaging.google-maps')->with('events', $locations);
+        return View::make('messaging.google-maps')->with('events', $event);
     }
 
     /**
