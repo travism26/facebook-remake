@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
+@extends('layouts.default')
     <style type="text/css">
         html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
     </style>
@@ -84,12 +82,5 @@
         google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
-</head>
-<body>
 <div class="row">{{ $location_encoded =  json_encode($events); }}</div>
 <div id="map-canvas"></div>
-"https://maps.googleapis.com/maps/api/js?key=travis_api_KEY"
-</body>
-</html>
-
-
