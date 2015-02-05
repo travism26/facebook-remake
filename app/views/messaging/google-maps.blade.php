@@ -24,9 +24,15 @@
          * other.
          */
         //var unavailabledates = $.parseJSON('[{"Location":"Fredericton","latitude":"45.9500","longitude":"-66.6667","zIndex":"3"},{"Location":"Gesgapegiag","latitude":"48.199","longitude":"-65.923","zIndex":"4"}]');
-        var test = JSON.parse('{{ json_encode($events) }}');
-        for(var i =0; i<2; i++){
-        document.write(test[i].Location);
+        var test = <?php echo json_encode($events, JSON_PRETTY_PRINT) ?>;
+        //document.write(test.length);
+        for(var i =0; i<test.length; i++){
+            //document.write("location: "+ test[i].location + "<br>");
+            document.write("latitude: "+test[i].latitude + "<br>");
+            document.write("longitude: "+test[i].longitude + "<br>");
+            document.write("zIndex: "+test[i].zIndex + "<br>");
+            document.write("title: "+test[i].title + "<br>");
+            //document.write();
         }
         var events = [
             ['Fredericton', 45.9500, -66.6667, 3],
@@ -41,22 +47,27 @@
             };
             map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
-            setMarkers(map, events);
+            setMarkers(map, test);
             google.maps.event.addListener(marker, 'click', toggleBounce);
         }
 
         function setMarkers(map, locations){
 
             for( var i =0; i < locations.length; i++){
-                var event = locations[i];
-                var eventLatLng = new google.maps.LatLng(event[1], event[2]);
+                //document.write(locations[i].title);
+                var event = locations[i].title;
+                var latitude = locations[i].latitude;
+                var longitude= locations[i].longitude;
+                var title = locations[i].title;
+                var zIndex = locations[i].zIndex;
+                var eventLatLng = new google.maps.LatLng(latitude, longitude);
                 marker = new google.maps.Marker({
                     map:        map,
                     draggable:  true,
                     animation:  google.maps.Animation.DROP,
                     position:   eventLatLng,
-                    title:      event[0],
-                    zIndex:     event[3]
+                    title:      title,
+                    zIndex:     zIndex
                 });
             }
         }
