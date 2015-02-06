@@ -65,8 +65,8 @@
 
     </script>
 <div class="row">
-    {{ Form::open(['route' => 'marker_path', 'method' => 'post']) }}
-    	
+    {{ Form::open() }}
+
     {{ Form::close() }}
 </div>
 <div id="map-canvas"></div>
