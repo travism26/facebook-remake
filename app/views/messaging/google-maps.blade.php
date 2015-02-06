@@ -22,12 +22,6 @@
 //            document.write("zIndex: "+test[i].zIndex + "<br>");
 //            document.write("title: "+test[i].title + "<br>");
 //        }
-        var events = [
-            ['Fredericton', 45.9500, -66.6667, 3],
-            ['Gesgapegiag', 48.199, -65.923, 4],
-            ['Saint John', 45.2796, -66.0628, 2],
-            ['Miramichi', 47.0225, -65.5089, 1]
-        ];
         function initialize() {
             var mapOptions = {
                 center: newBrunswick,
@@ -70,5 +64,9 @@
         google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
-{{--<div class="row">{{ $location_encoded =  json_encode($events); }}</div>--}}
+<div class="row">
+    {{ Form::open(['route' => 'marker_path', 'method' => 'post']) }}
+    	
+    {{ Form::close() }}
+</div>
 <div id="map-canvas"></div>
