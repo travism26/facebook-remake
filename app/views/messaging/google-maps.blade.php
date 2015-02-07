@@ -29,6 +29,7 @@
             };
             map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
+            
             setMarkers(map, test);
             google.maps.event.addListener(marker, 'click', toggleBounce);
         }
