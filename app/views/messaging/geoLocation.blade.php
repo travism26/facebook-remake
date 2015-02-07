@@ -52,7 +52,6 @@
             font-size: 13px;
             font-weight: 300;
         }
-        }
 
     </style>
     <title>Places search box</title>
