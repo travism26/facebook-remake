@@ -65,7 +65,10 @@
         function initialize() {
 
             var markers = [];
-            var map = new google.maps.Map(document.getElementById('map-canvas'), {
+            var mapOptions = {
+                zoom: 7
+            }
+            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions, {
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
 
