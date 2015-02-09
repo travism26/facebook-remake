@@ -43,12 +43,54 @@ class githubWrapper {
 
     public function getRepo()
     {
-
+        $repo = $this->curlCall($this->repos_url);
+        return $repo;
     }
 
-    private function setData($username)
+    public function curlCall($url)
     {
-        $this->html_url = "https://github.com/".$username;
+        //$url = "https://api.github.com/users/" . $this->username;
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => $url,
+            CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+        ));
+
+        // Send the request & save response to $resp
+        $resp = curl_exec($curl);
+        $responseObj = json_decode($resp);
+        return $responseObj;
+    }
+    public function setData($username)
+    {
+
+        $url = "https://api.github.com/users/" . $this->username;
+        $responseObj = $this->curlCall($url);
+        // Close request to clear up some resources
+        //curl_close($curl);
+        //dd($responseObj);
+        $this->html_url         = $responseObj->{'html_url'};
+        $this->avatar_url       = $responseObj->{'avatar_url'};
+        $this->baseUrl          = $responseObj->{'url'};
+        $this->followers_url    = $responseObj->{'followers_url'};
+        $this->subscriptions_url= $responseObj->{'subscriptions_url'};
+        $this->organizations_url= $responseObj->{'organizations_url'};
+        $this->repos_url        = $responseObj->{'repos_url'};
+        $this->received_events_url=$responseObj->{'received_events_url'};
+        $this->name             = $responseObj->{'name'};
+        $this->company          = $responseObj->{'company'};
+        $this->blog             = $responseObj->{'blog'};
+        $this->location         = $responseObj->{'location'};
+        $this->email            = $responseObj->{'email'};
+        $this->hireable         = $responseObj->{'hireable'};
+        $this->bio              = $responseObj->{'bio'};
+        $this->public_repos     = $responseObj->{'public_repos'};
+        $this->public_gists     = $responseObj->{'public_gists'};
+        $this->followers        = $responseObj->{'followers'};
+        $this->following        = $responseObj->{'following'};
+
+
     }
 
     /**

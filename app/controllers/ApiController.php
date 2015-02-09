@@ -63,21 +63,9 @@ class ApiController extends \BaseController {
         // get the user and send request to github
         // url: "https://api.github.com/users/travism26/repos",
         $git = new githubWrapper($username);
-        $url = "https://api.github.com/users/" . $username . "/repos";
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => $url,
-            CURLOPT_USERAGENT => 'Codular Sample cURL Request'
-        ));
-
-        // Send the request & save response to $resp
-        $resp = curl_exec($curl);
-        $responseObj = json_decode($resp);
-        // Close request to clear up some resources
-        curl_close($curl);
-
-        return View::make('api.github')->with('repo', $responseObj);
+        $gitData = $git->getRepo();
+        //dd($gitData);
+        return View::make('api.github')->with('repo', $gitData);
     }
 
     /**
