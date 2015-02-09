@@ -11,22 +11,34 @@ namespace Larabook\api;
 
 class githubWrapper {
 
-    protected $instance;
     protected $username;
-    protected $userData;
+
+    private $html_url;
+    private $avatar_url;
+    private $followers_url;
+    private $subscriptions_url;
+    private $organizations_url;
+    private $repos_url;
+    private $received_events_url;
+    private $name;
+
+
+
+
 
     public function __construct($username)
     {
         $this->username = $username;
+        $this->setData($username);
     }
 
-    public function getInstance()
+    public function getHtmlUrl()
     {
-        if (!isset(self::$instance))
-        {
-
-        }
+        return $this->htmlUrl;
     }
+
+
+
 
     /*
      * decided follow the singleton pattern for this
@@ -34,6 +46,11 @@ class githubWrapper {
      */
 
     public function getRepo()
+    {
+
+    }
+
+    private function setData($username)
     {
 
     }
