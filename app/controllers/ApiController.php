@@ -2,6 +2,7 @@
 
 //use Markers;
 use Larabook\Maps\markers;
+use Larabook\api\githubWrapper;
 
 class ApiController extends \BaseController {
 
@@ -61,6 +62,7 @@ class ApiController extends \BaseController {
     {
         // get the user and send request to github
         // url: "https://api.github.com/users/travism26/repos",
+        $git = new githubWrapper($username);
         $url = "https://api.github.com/users/" . $username . "/repos";
         $curl = curl_init();
         curl_setopt_array($curl, array(
