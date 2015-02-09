@@ -37,7 +37,7 @@ class githubWrapper {
     public function __construct($username)
     {
         $this->username = $username;
-        $this->setData($username);
+        $this->setData();
     }
 
 
@@ -62,7 +62,7 @@ class githubWrapper {
         $responseObj = json_decode($resp);
         return $responseObj;
     }
-    public function setData($username)
+    public function setData()
     {
 
         $url = "https://api.github.com/users/" . $this->username;
