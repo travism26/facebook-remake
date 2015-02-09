@@ -21,10 +21,16 @@ class githubWrapper {
     private $repos_url;
     private $received_events_url;
     private $name;
-
-
-
-
+    private $company;
+    private $blog;
+    private $location;
+    private $email;
+    private $hireable;
+    private $bio;
+    private $public_repos;
+    private $public_gists;
+    private $followers;
+    private $following;
 
     public function __construct($username)
     {
