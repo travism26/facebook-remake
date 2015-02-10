@@ -62,6 +62,7 @@ class githubWrapper {
         $responseObj = json_decode($resp);
         return $responseObj;
     }
+
     public function setData()
     {
 
@@ -70,25 +71,25 @@ class githubWrapper {
         // Close request to clear up some resources
         //curl_close($curl);
         //dd($responseObj);
-        $this->html_url         = $responseObj->{'html_url'};
-        $this->avatar_url       = $responseObj->{'avatar_url'};
-        $this->baseUrl          = $responseObj->{'url'};
-        $this->followers_url    = $responseObj->{'followers_url'};
-        $this->subscriptions_url= $responseObj->{'subscriptions_url'};
-        $this->organizations_url= $responseObj->{'organizations_url'};
-        $this->repos_url        = $responseObj->{'repos_url'};
-        $this->received_events_url=$responseObj->{'received_events_url'};
-        $this->name             = $responseObj->{'name'};
-        $this->company          = $responseObj->{'company'};
-        $this->blog             = $responseObj->{'blog'};
-        $this->location         = $responseObj->{'location'};
-        $this->email            = $responseObj->{'email'};
-        $this->hireable         = $responseObj->{'hireable'};
-        $this->bio              = $responseObj->{'bio'};
-        $this->public_repos     = $responseObj->{'public_repos'};
-        $this->public_gists     = $responseObj->{'public_gists'};
-        $this->followers        = $responseObj->{'followers'};
-        $this->following        = $responseObj->{'following'};
+        $this->html_url = $responseObj->{'html_url'};
+        $this->avatar_url = $responseObj->{'avatar_url'};
+        $this->baseUrl = $responseObj->{'url'};
+        $this->followers_url = $responseObj->{'followers_url'};
+        $this->subscriptions_url = $responseObj->{'subscriptions_url'};
+        $this->organizations_url = $responseObj->{'organizations_url'};
+        $this->repos_url = $responseObj->{'repos_url'};
+        $this->received_events_url = $responseObj->{'received_events_url'};
+        $this->name = $responseObj->{'name'};
+        $this->company = $responseObj->{'company'};
+        $this->blog = $responseObj->{'blog'};
+        $this->location = $responseObj->{'location'};
+        $this->email = $responseObj->{'email'};
+        $this->hireable = $responseObj->{'hireable'};
+        $this->bio = $responseObj->{'bio'};
+        $this->public_repos = $responseObj->{'public_repos'};
+        $this->public_gists = $responseObj->{'public_gists'};
+        $this->followers = $responseObj->{'followers'};
+        $this->following = $responseObj->{'following'};
 
 
     }
