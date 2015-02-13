@@ -118,7 +118,10 @@ Route::get('maps', [
     'uses' => 'ApiController@google'
 ]);
 
-Route::get('geolocation', function ()
-{
-    return View::make('messaging.geoLocation');
-});
+Route::get('geolocation',[
+    'as' => 'geolocation',
+    function(){
+        return View::make('messaging.geolocation');
+    }]
+);
+//return View::make('messaging.geoLocation');
