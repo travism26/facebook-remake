@@ -100,7 +100,7 @@ class StatusesController extends \BaseController {
      */
     public function edit($id)
     {
-        //
+        return View::make('statuses.edit');
     }
 
 

@@ -78,7 +78,7 @@ class ApiController extends \BaseController {
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
