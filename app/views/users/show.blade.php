@@ -8,6 +8,7 @@
                     @include('users.partials.avatar', ['size' => 50])
                 </div>
 
+
                 <div class="media-body">
                     <h1 class="media-heading">{{ $user->username }}</h1>
                     <ul class="list-inline">

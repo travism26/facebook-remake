@@ -125,3 +125,8 @@ Route::get('geolocation',[
     }]
 );
 //return View::make('messaging.geoLocation');
+
+Route::get('edit/{id}', [
+    'as' => 'edit_status',
+    'uses' => 'StatusesController@edit'
+]);

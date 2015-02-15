@@ -100,9 +100,10 @@ class StatusesController extends \BaseController {
      */
     public function edit($id)
     {
-        return View::make('statuses.edit');
+        $status = Statuses::findOrFail($id);
+        //dd($status);
+        return View::make('statuses.edit')->with('status','status');
     }
-
 
     /**
      * Update the specified resource in storage.
