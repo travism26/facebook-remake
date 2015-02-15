@@ -130,3 +130,5 @@ Route::get('edit/{id}', [
     'as' => 'edit_status',
     'uses' => 'StatusesController@edit'
 ]);
+
+Route::resource('status', 'StatusesController');

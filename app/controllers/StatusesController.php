@@ -3,6 +3,7 @@
 use Larabook\Forms\PublicStatusForm;
 use Larabook\Statuses\PublishStatusCommand;
 use Larabook\Statuses\StatusRepository;
+use Larabook\Statuses\Status;
 
 class StatusesController extends \BaseController {
 
@@ -100,9 +101,9 @@ class StatusesController extends \BaseController {
      */
     public function edit($id)
     {
-        $status = Statuses::findOrFail($id);
+        $status = Status::findOrFail($id);
         //dd($status);
-        return View::make('statuses.edit')->with('status','status');
+        return View::make('statuses.edit')->with('status', $status);
     }
 
     /**

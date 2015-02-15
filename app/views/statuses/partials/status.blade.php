@@ -4,7 +4,7 @@
     </div>
     @if($signedIn)
         <div class="pull-right">
-            {{ link_to_route('follow_path', 'Edit') }}
+            {{ link_to_route('status.edit', 'Edit', array($status->id)) }}
         </div>
     @endif
     <div class="media-body">
