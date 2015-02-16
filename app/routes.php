@@ -73,7 +73,6 @@ Route::get('@{username}', [
     'uses' => 'UsersController@show'
 ]);
 
-
 /*
  * this will be the follow route to the the following
  * controller. temp pointing to users controller.
@@ -126,9 +125,15 @@ Route::get('geolocation',[
 );
 //return View::make('messaging.geoLocation');
 
+
+Route::resource('status','StatusesController');
+
 Route::get('edit/{id}', [
     'as' => 'edit_status',
-    'uses' => 'StatusesController@edit'
+    'uses' => 'StatusesController@update'
 ]);
 
-Route::resource('status', 'StatusesController');
+//Route::post('statuses/{id}/edit',[
+//    'as' => 'edit_status',
+//    'uses' => ''
+//]);

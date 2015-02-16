@@ -3,7 +3,6 @@
     <div class="row">
         <div class="col-md-6">
             <h1>Register</h1>
-
             @include('layouts.partials.errors')
             {{ Form::open(['route' => 'register_path', 'method' => 'post']) }}
                 <!-- Username Form Input -->

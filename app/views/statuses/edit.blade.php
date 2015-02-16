@@ -6,12 +6,13 @@
     {{ $status->user_id }}
     <br>
     <div class="col-md-6">
-    {{ Form::open() }}
-    <!-- Status Form Input -->
-    <div class="form-group">
-        {{ Form::label('status', 'Status:') }}
-        {{ Form::text ('status', $status->body, ['class'=> 'form-control', 'placeholder' => 'Whats on your Mind']) }}
-    </div>
+    {{ Form::open(['method' => 'PATCH', 'route' => ['status.update', $status->id ]]) }}
+        <!-- Status Form Input -->
+        <div class="form-group">
+            {{ Form::text ('status', $status->body, ['class'=> 'form-control', 'placeholder' => 'Whats on your Mind']) }}
+        </div>
+        {{ Form::hidden('status_id'. $status->id) }}
+        <button type="submit" class="btn btn-primary">Update status</button>
 
     {{ Form::close() }}
     </div>

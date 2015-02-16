@@ -103,7 +103,7 @@ class StatusesController extends \BaseController {
     {
         $status = Status::findOrFail($id);
         //dd($status);
-        return View::make('statuses.edit')->with('status', $status);
+        return View::make('statuses.edit')->withStatus($status);
     }
 
     /**
@@ -114,7 +114,14 @@ class StatusesController extends \BaseController {
      */
     public function update($id)
     {
-        //
+        $status = Status::findOrFail($id);
+
+        $input = Input::get('status');
+        $status->body = $input;
+
+        $status->save();
+
+        return Redirect::to('statuses');
     }
 
 
