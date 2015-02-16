@@ -2,7 +2,7 @@
     <div class="pull-left">
         @include('users.partials.avatar', ['user' => $status->user])
     </div>
-    @if($signedIn)
+    @if($signedIn && ($currentUser->id == $status->user_id))
         <div class="pull-right">
             {{ link_to_route('status.edit', 'Edit', array($status->id)) }}
         </div>
