@@ -1,9 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <h1>Edit your status</h1>
-    {{ $status->id }}
-    {{ $status->body }}
-    {{ $status->user_id }}
+
     <br>
     <div class="col-md-6">
     {{ Form::open(['method' => 'PATCH', 'route' => ['status.update', $status->id ]]) }}
