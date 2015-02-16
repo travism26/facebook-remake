@@ -43,6 +43,7 @@ Route::get('logout', [
 /*
  * statuses
  */
+Route::resource('status','StatusesController');
 Route::get('statuses', [
     'as'   => 'statuses_path',
     'uses' => 'StatusesController@index'
@@ -124,16 +125,3 @@ Route::get('geolocation',[
     }]
 );
 //return View::make('messaging.geoLocation');
-
-
-Route::resource('status','StatusesController');
-
-Route::get('edit/{id}', [
-    'as' => 'edit_status',
-    'uses' => 'StatusesController@update'
-]);
-
-//Route::post('statuses/{id}/edit',[
-//    'as' => 'edit_status',
-//    'uses' => ''
-//]);
