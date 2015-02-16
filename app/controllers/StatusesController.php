@@ -102,8 +102,15 @@ class StatusesController extends \BaseController {
     public function edit($id)
     {
         $status = Status::findOrFail($id);
-        //dd($status);
-        return View::make('statuses.edit')->withStatus($status);
+
+        if (Auth::user()->id !== $status->user_id)
+        {
+            Flash::error('You Do Not have permission to edit this post');
+            return Redirect::to('statuses');
+        } else
+        {
+            return View::make('statuses.edit')->withStatus($status);
+        }
     }
 
     /**
@@ -115,7 +122,6 @@ class StatusesController extends \BaseController {
     public function update($id)
     {
         $status = Status::findOrFail($id);
-
         $input = Input::get('status');
         $status->body = $input;
 
