@@ -38,7 +38,7 @@ class CommentsController extends \BaseController {
 
     public function edit($id)
     {
-        //add code
+        echo "LMAO";
     }
 
     public function update($id)

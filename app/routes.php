@@ -124,4 +124,6 @@ Route::get('geolocation',[
         return View::make('messaging.geolocation');
     }]
 );
+
+Route::resource('comment','CommentsController');
 //return View::make('messaging.geoLocation');
