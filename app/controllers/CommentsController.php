@@ -36,4 +36,14 @@ class CommentsController extends \BaseController {
 		//go back
 	}
 
+    public function edit($id)
+    {
+        //add code
+    }
+
+    public function update($id)
+    {
+        //add code
+    }
+
 }

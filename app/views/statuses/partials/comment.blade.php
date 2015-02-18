@@ -2,6 +2,9 @@
     <div class="pull-left">
         @include('users.partials.avatar', ['user' => $comment->owner, 'class' => 'media-object'])
     </div>
+    <div class="pull-right">
+
+    </div>
 
     <div class="media-body">
         <h4 class="media-heading">{{ $comment->owner->username }}</h4>
