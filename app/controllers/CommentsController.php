@@ -1,6 +1,7 @@
 <?php
 
 use Larabook\Forms\CommentForm;
+use Larabook\Statuses\Comment;
 use Larabook\Statuses\LeaveCommentOnStatusCommand;
 
 class CommentsController extends \BaseController {
@@ -38,7 +39,16 @@ class CommentsController extends \BaseController {
 
     public function edit($id)
     {
-        echo "LMAO";
+        $comment = Comment::findOrFail($id);
+
+        if (Auth::user()->id !== $comment->user_id)
+        {
+            Flash::error('You Do Not have permission to edit this Comment');
+            return Redirect::to('statuses');
+        } else
+        {
+            return View::make('statuses.comment.edit')->withComment($comment);
+        }
     }
 
     public function update($id)
