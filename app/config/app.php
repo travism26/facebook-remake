@@ -125,7 +125,6 @@ return array(
         'Laracasts\Commander\CommanderServiceProvider',
         'Laracasts\Validation\ValidationServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
-        'Sigep\LaravelReactJS\ReactJSServiceProvider',
         'Larabook\Providers\EventServiceProvider'
 
     ),
@@ -195,7 +194,6 @@ return array(
         'Validator'         => 'Illuminate\Support\Facades\Validator',
         'View'              => 'Illuminate\Support\Facades\View',
         'Flash'             => 'Laracasts\Flash\Flash',
-        'ReactJS'           => 'Sigep\LaravelReactJS\ReactJSFacade'
 
     ),
 

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "013ea24d8c94c32507679d3cc18a7c69",
+    "hash": "d999587ceaeb861ac52b59c8b1638113",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -969,57 +969,6 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
-        },
-        {
-            "name": "sigep/laravel-reactjs",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cohros/laravel-reactjs.git",
-                "reference": "3d9d247d8a225b55b4dea46cdac4c15b63b12c7c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cohros/laravel-reactjs/zipball/3d9d247d8a225b55b4dea46cdac4c15b63b12c7c",
-                "reference": "3d9d247d8a225b55b4dea46cdac4c15b63b12c7c",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "4.*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "apigen/apigen": "2.8.*",
-                "nette/nette": "~2.1.3",
-                "orchestra/testbench": "2.1.*",
-                "phpunit/phpunit": "4.1.*"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [],
-                "psr-0": {
-                    "Sigep\\LaravelReactJS\\": "src/"
-                }
-            },
-            "scripts": {
-                "post-install-cmd": [
-                    "php ./requirements.php"
-                ],
-                "post-update-cmd": [
-                    "php ./requirements.php"
-                ]
-            },
-            "authors": [
-                {
-                    "name": "Luís Henrique",
-                    "email": "luish.faria@gmail.com"
-                }
-            ],
-            "support": {
-                "source": "https://github.com/cohros/laravel-reactjs/tree/1.0.1",
-                "issues": "https://github.com/cohros/laravel-reactjs/issues"
-            },
-            "time": "2014-11-17 11:15:03"
         },
         {
             "name": "stack/builder",
