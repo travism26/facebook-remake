@@ -9,15 +9,8 @@
         "laracasts/commander": "~1.0",
 		"laracasts/validation": "1.1.*",
         "laracasts/flash": "~1.0",
-        "laracasts/presenter": "0.1.*",
-        "sigep/laravel-reactjs": "*"
+        "laracasts/presenter": "0.1.*"
 	},
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/cohros/laravel-reactjs"
-        }
-    ],
     "require-dev": {
         "way/generators": "~2.0",
         "codeception/codeception": "~2.0",
