@@ -1,3 +1,5 @@
+Deploying Url provided soon (next day or two).
+
 We need to install Vagrant to manage our local server, and VirtualBox to create a local virtual machine.
 
 ### Installing Virtual Box
