@@ -53,7 +53,13 @@ class CommentsController extends \BaseController {
 
     public function update($id)
     {
-        //add code
+        $status = Comment::findOrFail($id);
+        $input = Input::get('comment');
+        $status->body = $input;
+
+        $status->save();
+
+        return Redirect::to('statuses');
     }
 
 }
