@@ -64,4 +64,9 @@ class StatusRepository {
 
         return $comment;
     }
+
+    public function editComment($comment)
+    {
+
+    }
 } 
