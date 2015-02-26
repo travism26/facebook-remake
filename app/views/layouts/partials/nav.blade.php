@@ -28,9 +28,9 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li>{{ link_to_route('profile_path', 'Your Profile', $currentUser->username) }}</li>
-              <li>{{ link_to_route('profile_path','Location Test') }}</li>
+              <li>{{ link_to_route('profile_path','Location Test', $currentUser->username) }}</li>
               <li class="divider"></li>
-              <li>{{ link_to_route('profile_path', 'Google Map') }}</li>
+              <li>{{ link_to_route('profile_path', 'Google Map', $currentUser->username) }}</li>
               <li class="divider"></li>
               <li>{{ link_to_route('logout_path', 'Log Out') }}</li>
             </ul>
