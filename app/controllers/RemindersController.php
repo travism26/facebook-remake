@@ -1,8 +1,6 @@
 <?php
 
-use View, Input, Flash, Lang, App, Hash, Password;
-
-class RemindersController extends Basecontroller {
+class RemindersController extends BaseController {
 
     /**
      * Display the password reminder view.

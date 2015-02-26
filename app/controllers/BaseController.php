@@ -1,6 +1,4 @@
 <?php
-
-use Controller, View, Auth;
 use Laracasts\Commander\CommanderTrait;
 
 class BaseController extends Controller {
