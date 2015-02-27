@@ -1,4 +1,5 @@
-Deploying Url provided soon (next day or two).
+Note: still under development i will be pushing updates nightly.
+[Deployed location](http://162.243.239.157/)
 
 We need to install Vagrant to manage our local server, and VirtualBox to create a local virtual machine.
 

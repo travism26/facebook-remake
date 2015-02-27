@@ -59,11 +59,6 @@ Route::post('statuses/{id}/comments', [
     'uses' => 'CommentsController@store'
 ]);
 
-//Route::get('messaging', function ()
-//{
-//    return View::make('messaging.message');
-//});
-
 Route::get('users', [
     'as'   => 'users_path',
     'uses' => 'UsersController@index'
@@ -105,18 +100,23 @@ Route::get('github', [
     'uses' => 'ApiController@index'
 ]);
 
-/*
- * travis custom stuff
- */
-//Route::get('api-test', function ()
-//{
-//    return View::make('messaging.api-test');
-//});
-
 Route::get('maps', [
     'as'   => 'google_maps',
     'uses' => 'ApiController@google'
 ]);
+
+
+Route::resource('comment','CommentsController');
+//return View::make('messaging.geoLocation');
+
+/*
+ * travis custom stuff
+ */
+
+//Route::get('api-test', function ()
+//{
+//    return View::make('messaging.api-test');
+//});
 
 //Route::get('geolocation',[
 //    'as' => 'geolocation',
@@ -125,5 +125,7 @@ Route::get('maps', [
 //    }]
 //);
 
-Route::resource('comment','CommentsController');
-//return View::make('messaging.geoLocation');
+//Route::get('messaging', function ()
+//{
+//    return View::make('messaging.message');
+//});
