@@ -55,9 +55,9 @@ class CommentsController extends \BaseController {
     public function update($id)
     {
         $status = Comment::findOrFail($id);
-        $input = Input::get('comment');
-        //$this->commentForm->validate($input);
-        $status->body = $input;
+        $input = Input::all();
+        $this->commentForm->validate($input);
+        $status->body = $input['body'];
 
         $status->save();
 

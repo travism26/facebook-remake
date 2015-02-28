@@ -64,15 +64,9 @@ class StatusesController extends \BaseController {
      */
     public function store()
     {
-//        $input = Input::get();
-//        $input['userId'] = Auth::id();
-
         $input = array_add(Input::get(), 'userId', Auth::id());
         $this->publishStatusForm->validate($input);
         //publish status command a status message
-        /*$this->execute(
-            new PublishStatusCommand(Input::get('body'), Auth::user()->id)
-        );*/
         $this->execute(PublishStatusCommand::class, $input);
         Flash::success('Your status has been updated');
 
@@ -122,9 +116,10 @@ class StatusesController extends \BaseController {
     public function update($id)
     {
         $status = Status::findOrFail($id);
-        $input = Input::get('status');
-        $status->body = $input;
-
+        $input = Input::all();
+//        dd($input);
+        $this->publishStatusForm->validate($input);
+        $status->body = $input['body'];
         $status->save();
 
         return Redirect::to('statuses');

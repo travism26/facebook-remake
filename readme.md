@@ -15,15 +15,7 @@ Once installed in the terminal type `vagrant -v` to pull the verify that its bee
 
 ### Installing Homestead
 
-In the terminal type `vagrant box add laravel/homestead`
-
-please refer to the [laravel documentation](http://laravel.com/docs/4.2/homestead) if you have any issues.
-
-For Mac:
-In the terminal go to your home directory type `cd ~` and then clone the git repo `git clone https://github.com/laravel/homestead.git Homestead`
-
-Windows: TBC
-:( 
+Please follow the documentation on the laravel site [Homestead docs](http://laravel.com/docs/5.0/homestead)
 
 ## Installation TBC
 
