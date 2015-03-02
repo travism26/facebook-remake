@@ -90,6 +90,13 @@ Route::delete('follows/{id}', [
 
 Route::controller('password', 'RemindersController');
 
+Route::resource('comment','CommentsController');
+//return View::make('messaging.geoLocation');
+
+/*
+ * travis custom stuff
+ */
+
 Route::get('github/{username}', [
     'as'   => 'github_api',
     'uses' => 'ApiController@show'
@@ -105,27 +112,19 @@ Route::get('maps', [
     'uses' => 'ApiController@google'
 ]);
 
+Route::get('api-test', function ()
+{
+    return View::make('messaging.api-test');
+});
 
-Route::resource('comment','CommentsController');
-//return View::make('messaging.geoLocation');
+Route::get('geolocation',[
+    'as' => 'geolocation',
+    function(){
+        return View::make('messaging.geolocation');
+    }]
+);
 
-/*
- * travis custom stuff
- */
-
-//Route::get('api-test', function ()
-//{
-//    return View::make('messaging.api-test');
-//});
-
-//Route::get('geolocation',[
-//    'as' => 'geolocation',
-//    function(){
-//        return View::make('messaging.geolocation');
-//    }]
-//);
-
-//Route::get('messaging', function ()
-//{
-//    return View::make('messaging.message');
-//});
+Route::get('messaging', function ()
+{
+    return View::make('messaging.message');
+});
