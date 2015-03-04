@@ -29,7 +29,7 @@ Here are the steps for installation on a local machine.
 6. Create a database in Homestead called `larabook`.
 7. Run `composer install --dev` and `php artisan migrate --seed --env=local`.
 8. Add `128.0.0.1 larabook.dev` to your computer's `hosts` file.
-
+update something 
 ### Configuring Homestead
 
 Follow the instructions on the Laravel [Homestead](http://laravel.com/docs/4.2/homestead) section.
