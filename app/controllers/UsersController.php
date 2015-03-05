@@ -32,4 +32,16 @@ class UsersController extends \BaseController {
 
         return View::make('users.show')->withUser($user);
     }
+
+    public function profile()
+    {
+        $loggedInUser = Auth::user();
+        if(Auth::user()){
+            return View::make('users.profile', $loggedInUser);
+        } else {
+            Flash::error('Woah something weird happened back there.');
+            return Redirect::route('home');
+        }
+
+    }
 }

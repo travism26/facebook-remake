@@ -69,6 +69,11 @@ Route::get('@{username}', [
     'uses' => 'UsersController@show'
 ]);
 
+Route::get('profile', [
+    'as' => 'user_profile',
+    'uses' => 'UsersController@profile'
+]);
+
 /*
  * this will be the follow route to the the following
  * controller. temp pointing to users controller.
