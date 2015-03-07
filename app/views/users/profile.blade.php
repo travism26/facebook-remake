@@ -2,7 +2,10 @@
 @section('content')
     <h1>Your Profile</h1>
     {{--{{ dd($user) }}--}}
-    <!-- Username Form Input -->
-    {{ $user->username }}
-    {{ $user->email }}
+    <dl class="dl-horizontal">
+        <dt>Username</dt>
+        <dd>{{ $user->username }}</dd>
+        <dt>Email</dt>
+        <dd>{{ $user->email }}</dd>
+    </dl>
 @stop
