@@ -35,9 +35,9 @@ class UsersController extends \BaseController {
 
     public function profile()
     {
-        $loggedInUser = Auth::user();
-        if(Auth::user()){
-            return View::make('users.profile', $loggedInUser);
+        $user = Auth::user();
+        if($user){
+            return View::make('users.profile')->withUser($user);
         } else {
             Flash::error('Woah something weird happened back there.');
             return Redirect::route('home');
