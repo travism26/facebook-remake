@@ -10,17 +10,17 @@
 //});
 
 Route::get('/', [
-    'as'   => 'home',
+    'as' => 'home',
     'uses' => 'PagesController@home'
 ]);
 
 Route::get('register', [
-    'as'   => 'register_path',
+    'as' => 'register_path',
     'uses' => 'RegistrationController@create'
 ]);
 
 Route::post('register', [
-    'as'   => 'register_path',
+    'as' => 'register_path',
     'uses' => 'RegistrationController@store'
 ]);
 
@@ -28,44 +28,44 @@ Route::post('register', [
  * Sessions
  */
 Route::get('login', [
-    'as'   => 'login_path',
+    'as' => 'login_path',
     'uses' => 'SessionsController@create'
 ]);
 
 Route::post('login', [
-    'as'   => 'login_path',
+    'as' => 'login_path',
     'uses' => 'SessionsController@store'
 ]);
 
 Route::get('logout', [
-    'as'   => 'logout_path',
+    'as' => 'logout_path',
     'uses' => 'SessionsController@destroy']);
 /*
  * statuses
  */
-Route::resource('status','StatusesController');
+
 Route::get('statuses', [
-    'as'   => 'statuses_path',
+    'as' => 'statuses_path',
     'uses' => 'StatusesController@index'
 ]);
 
 Route::post('statuses', [
-    'as'   => 'status_store',
+    'as' => 'status_store',
     'uses' => 'StatusesController@store'
 ]);
 
 Route::post('statuses/{id}/comments', [
-    'as'   => 'comment_path',
+    'as' => 'comment_path',
     'uses' => 'CommentsController@store'
 ]);
 
 Route::get('users', [
-    'as'   => 'users_path',
+    'as' => 'users_path',
     'uses' => 'UsersController@index'
 ]);
 
 Route::get('@{username}', [
-    'as'   => 'profile_path',
+    'as' => 'profile_path',
     'uses' => 'UsersController@show'
 ]);
 
@@ -74,18 +74,23 @@ Route::get('profile', [
     'uses' => 'UsersController@profile'
 ]);
 
+Route::get('profile/edit/{id}', [
+    'as' => 'profile.edit',
+    'uses' => 'UsersController@edit'
+]);
+
 /*
  * this will be the follow route to the the following
  * controller. temp pointing to users controller.
  */
 Route::post('follows', [
-    'as'   => 'follows_path',
+    'as' => 'follows_path',
     'uses' => 'FollowsController@store'
 ]);
 
 
 Route::delete('follows/{id}', [
-    'as'   => 'follow_path',
+    'as' => 'follow_path',
     'uses' => 'FollowsController@destroy'
 ]);
 
@@ -95,7 +100,8 @@ Route::delete('follows/{id}', [
 
 Route::controller('password', 'RemindersController');
 
-Route::resource('comment','CommentsController');
+Route::resource('status', 'StatusesController');
+Route::resource('comment', 'CommentsController');
 //return View::make('messaging.geoLocation');
 
 /*
@@ -103,17 +109,17 @@ Route::resource('comment','CommentsController');
  */
 
 Route::get('github/{username}', [
-    'as'   => 'github_api',
+    'as' => 'github_api',
     'uses' => 'ApiController@show'
 ]);
 
 Route::get('github', [
-    'as'   => 'github_api',
+    'as' => 'github_api',
     'uses' => 'ApiController@index'
 ]);
 
 Route::get('maps', [
-    'as'   => 'google_maps',
+    'as' => 'google_maps',
     'uses' => 'ApiController@google'
 ]);
 
@@ -122,11 +128,12 @@ Route::get('api-test', function ()
     return View::make('messaging.api-test');
 });
 
-Route::get('geolocation',[
-    'as' => 'geolocation',
-    function(){
-        return View::make('messaging.geolocation');
-    }]
+Route::get('geolocation', [
+        'as' => 'geolocation',
+        function ()
+        {
+            return View::make('messaging.geolocation');
+        }]
 );
 
 Route::get('messaging', function ()

@@ -42,6 +42,16 @@ class UsersController extends \BaseController {
             Flash::error('Woah something weird happened back there.');
             return Redirect::route('home');
         }
+    }
 
+    public function edit($id)
+    {
+        $user = $this->userRepository->findById($id);
+
+        if($user){
+            echo "hello";
+        } else {
+            echo 'USER NOT FOUND';
+        }
     }
 }
