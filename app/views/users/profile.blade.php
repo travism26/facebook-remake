@@ -8,5 +8,5 @@
         <dt>Email</dt>
         <dd>{{ $user->email }}</dd>
     </dl>
-    {{ link_to_route('profile_edit', 'Edit', [ $user->id ]) }}
+    {{ link_to_route('profile_edit', 'Edit') }}
 @stop

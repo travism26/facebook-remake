@@ -45,14 +45,12 @@ class UsersController extends \BaseController {
         }
     }
 
-    public function edit($id)
+    public function edit()
     {
-        $user = $this->userRepository->findById($id);
-
         $loggedInUser = Auth::user();
-        if ($loggedInUser == $user)
+        if ($loggedInUser)
         {
-            return View::make('users.edit')->withUser($user);
+            return View::make('users.edit')->withUser($loggedInUser);
         } else
         {
             Flash::error('You dont have permission to do this sorry BRAH');

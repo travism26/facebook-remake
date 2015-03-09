@@ -74,7 +74,7 @@ Route::get('profile', [
     'uses' => 'UsersController@profile'
 ]);
 
-Route::get('profile/edit/{id}', [
+Route::get('profile/edit/', [
     'as' => 'profile_edit',
     'uses' => 'UsersController@edit'
 ]);
