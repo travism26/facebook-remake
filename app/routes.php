@@ -75,7 +75,7 @@ Route::get('profile', [
 ]);
 
 Route::get('profile/edit/{id}', [
-    'as' => 'profile.edit',
+    'as' => 'profile_edit',
     'uses' => 'UsersController@edit'
 ]);
 
@@ -102,6 +102,7 @@ Route::controller('password', 'RemindersController');
 
 Route::resource('status', 'StatusesController');
 Route::resource('comment', 'CommentsController');
+//Route::resource('profile', 'UsersController');
 //return View::make('messaging.geoLocation');
 
 /*

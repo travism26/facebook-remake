@@ -29,16 +29,17 @@ class UsersController extends \BaseController {
     public function show($username)
     {
         $user = $this->userRepository->findByUsername($username);
-
         return View::make('users.show')->withUser($user);
     }
 
     public function profile()
     {
         $user = Auth::user();
-        if($user){
+        if ($user)
+        {
             return View::make('users.profile')->withUser($user);
-        } else {
+        } else
+        {
             Flash::error('Woah something weird happened back there.');
             return Redirect::route('home');
         }
@@ -48,10 +49,14 @@ class UsersController extends \BaseController {
     {
         $user = $this->userRepository->findById($id);
 
-        if($user){
-            echo "hello";
-        } else {
-            echo 'USER NOT FOUND';
+        $loggedInUser = Auth::user();
+        if ($loggedInUser == $user)
+        {
+            return View::make('users.edit')->withUser($user);
+        } else
+        {
+            Flash::error('You dont have permission to do this sorry BRAH');
+            return Redirect::route('home');
         }
     }
 }

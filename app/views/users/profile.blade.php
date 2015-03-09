@@ -8,8 +8,5 @@
         <dt>Email</dt>
         <dd>{{ $user->email }}</dd>
     </dl>
-        {{ Form::open(['method' => 'PATCH', 'route' => ['profile.edit', $user->id ]]) }}
-            {{ Form::hidden('user_id', $user->id) }}
-            <button type="submit" class="btn btn-primary">Update</button>
-        {{ Form::close() }}
+    {{ link_to_route('profile_edit', 'Edit', [ $user->id ]) }}
 @stop

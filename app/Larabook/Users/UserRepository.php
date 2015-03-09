@@ -61,7 +61,6 @@ class UserRepository {
     public function follow($userIdToFollow, User $user)
     {
         return $user->followedUsers()->attach($userIdToFollow);
-        //$user->follow($userIdToFollow);
     }
 
     /**
