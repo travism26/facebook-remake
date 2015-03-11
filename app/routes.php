@@ -74,12 +74,15 @@ Route::get('profile', [
     'uses' => 'UsersController@profile'
 ]);
 
-Route::get('profile/edit/', [
+Route::get('profile/edit', [
     'as' => 'profile_edit',
     'uses' => 'UsersController@edit'
 ]);
 
-Route::post();
+Route::post('profile/update/{id}', [
+    'as' => 'profile_update',
+    'uses' => 'UsersController@update'
+]);
 
 /*
  * this will be the follow route to the the following

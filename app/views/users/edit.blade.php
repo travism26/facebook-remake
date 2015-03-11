@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-4">
             <h1>Update Information</h1>
-            {{ Form::model($user, ['route' => 'profile_path', 'method' => 'post']) }}
+            {{ Form::model($user, ['route' => ['profile_update', $user->id], 'method' => 'post']) }}
                 <!-- Email Form Input -->
                 <div class="form-group">
                     {{ Form::label('email', 'Email:') }}
