@@ -57,4 +57,13 @@ class UsersController extends \BaseController {
             return Redirect::route('home');
         }
     }
+
+    public function update($id)
+    {
+        $user = $this->userRepository->findById($id);
+
+        $input = Input::all();
+
+        dd($input);
+    }
 }

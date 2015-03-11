@@ -79,6 +79,8 @@ Route::get('profile/edit/', [
     'uses' => 'UsersController@edit'
 ]);
 
+Route::post();
+
 /*
  * this will be the follow route to the the following
  * controller. temp pointing to users controller.
