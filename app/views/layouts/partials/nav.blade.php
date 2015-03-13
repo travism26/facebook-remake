@@ -28,7 +28,7 @@
             {{{ $currentUser->username }}} <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-                <li>{{ link_to_route('profile_path', 'Your Profile', $currentUser->username) }}</li>
+                <li>{{ link_to_route('user_profile', 'Your Profile', $currentUser->username) }}</li>
                 <li>{{ link_to_route('geolocation','Location Test', $currentUser->username) }}</li>
                 <li class="divider"></li>
                 <li>{{ link_to_route('google_maps', 'Google Map', $currentUser->username) }}</li>
