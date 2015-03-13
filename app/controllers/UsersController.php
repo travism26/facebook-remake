@@ -61,9 +61,11 @@ class UsersController extends \BaseController {
     public function update($id)
     {
         $user = $this->userRepository->findById($id);
+        //$input = Input::all();
+        $user->email = Input::get('email');
 
-        $input = Input::all();
-
-        dd($input);
+        $this->userRepository->save($user);
+        return Redirect::route('user_profile');
+        //dd($input);
     }
 }
