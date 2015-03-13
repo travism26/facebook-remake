@@ -12,12 +12,12 @@ use Laracasts\Validation\FormValidator;
 
 class RegistrationForm extends FormValidator {
 
-    /*
-     * Validation rules for the registration form
-     */
-    protected $rules = [
-        'username' => 'required|unique:users,username',
-        'email'    => 'required|unique:users,email',
-        'password' => 'required|confirmed'
-    ];
+	/*
+	 * Validation rules for the registration form
+	 */
+	protected $rules = [
+		'username' => 'required|unique:users,username',
+		'email'    => 'required|unique:users,email',
+		'password' => 'required|confirmed'
+	];
 } 

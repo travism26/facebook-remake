@@ -1,17 +1,21 @@
 <?php
 
 use Larabook\Users\UserRepository;
+use Larabook\Forms\UserValidation;
 
 class UsersController extends \BaseController {
 
     protected $userRepository;
+    protected $userValidation;
 
-    /**
-     * @param UserRepository $userRepository
-     */
-    public function __construct(UserRepository $userRepository)
+	/**
+	 * @param UserValidation $userValidation
+	 * @param UserRepository $userRepository
+	 */
+    public function __construct(UserValidation $userValidation, UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
+	    $this->userValidation = $userValidation;
     }
 
     /**
@@ -61,9 +65,9 @@ class UsersController extends \BaseController {
     public function update($id)
     {
         $user = $this->userRepository->findById($id);
-        //$input = Input::all();
-        $user->email = Input::get('email');
-
+        $input = Input::all();
+        $user->email = $input['email'];
+		$this->userValidation->validate($input);
         $this->userRepository->save($user);
         return Redirect::route('user_profile');
         //dd($input);
