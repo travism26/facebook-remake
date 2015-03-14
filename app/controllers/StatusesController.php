@@ -7,135 +7,140 @@ use Larabook\Statuses\Status;
 
 class StatusesController extends \BaseController {
 
-    /**
-     * @var StatusRepository
-     */
-    protected $statusRepository;
-    /**
-     * @var PublishStatusForm
-     */
-    protected $publishStatusForm;
+	/**
+	 * @var StatusRepository
+	 */
+	protected $statusRepository;
+	/**
+	 * @var PublishStatusForm
+	 */
+	protected $publishStatusForm;
 
-    /**
-     * @param PublicStatusForm|PublishStatusForm $publishStatusForm
-     * @param StatusRepository $statusRepository
-     */
-    function __construct(PublicStatusForm $publishStatusForm, StatusRepository $statusRepository)
-    {
-        $this->statusRepository = $statusRepository;
-        $this->publishStatusForm = $publishStatusForm;
-    }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        if (Auth::user())
-        {
-            $statuses = $this->statusRepository->getFeedForUser(Auth::user());
-
-            return View::make('statuses.index', compact('statuses'));
-        } else
-        {
-            return Redirect::route('home');
-        }
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
+	/**
+	 * @param PublicStatusForm|PublishStatusForm $publishStatusForm
+	 * @param StatusRepository $statusRepository
+	 */
+	function __construct( PublicStatusForm $publishStatusForm, StatusRepository $statusRepository )
+	{
+		$this->statusRepository  = $statusRepository;
+		$this->publishStatusForm = $publishStatusForm;
+	}
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        $input = array_add(Input::get(), 'userId', Auth::id());
-        $this->publishStatusForm->validate($input);
-        //publish status command a status message
-        $this->execute(PublishStatusCommand::class, $input);
-        Flash::success('Your status has been updated');
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		if ( Auth::user() )
+		{
+			$statuses = $this->statusRepository->getFeedForUser( Auth::user() );
 
-        return Redirect::back();
+			return View::make( 'statuses.index', compact( 'statuses' ) );
+		} else
+		{
+			return Redirect::route( 'home' );
+		}
 
-    }
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		//
+	}
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		$input = array_add( Input::get(), 'userId', Auth::id() );
+		$this->publishStatusForm->validate( $input );
+		//publish status command a status message
+		$this->execute( PublishStatusCommand::class, $input );
+		Flash::success( 'Your status has been updated' );
+
+		return Redirect::back();
+
+	}
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        $status = Status::findOrFail($id);
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function show( $id )
+	{
+		//
+	}
 
-        if (Auth::user()->id !== $status->user_id)
-        {
-            Flash::error('You Do Not have permission to edit this post');
-            return Redirect::to('statuses');
-        } else
-        {
-            return View::make('statuses.edit')->withStatus($status);
-        }
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        $status = Status::findOrFail($id);
-        $input = Input::all();
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function edit( $id )
+	{
+		$status = Status::findOrFail( $id );
+
+		if ( Auth::user()->id !== $status->user_id )
+		{
+			Flash::error( 'You Do Not have permission to edit this post' );
+
+			return Redirect::to( 'statuses' );
+		} else
+		{
+			return View::make( 'statuses.edit' )->withStatus( $status );
+		}
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function update( $id )
+	{
+		$status = Status::findOrFail( $id );
+		$input  = Input::all();
 //        dd($input);
-        $this->publishStatusForm->validate($input);
-        $status->body = $input['body'];
-        $status->save();
+		$this->publishStatusForm->validate( $input );
+		$status->body = $input['body'];
+		$status->save();
 
-        return Redirect::to('statuses');
-    }
+		return Redirect::to( 'statuses' );
+	}
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function destroy( $id )
+	{
+		//
+	}
 
 
 }
