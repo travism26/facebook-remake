@@ -3,6 +3,7 @@
 //use Markers;
 use Larabook\Maps\markers;
 use Larabook\api\githubWrapper;
+use GrahamCampbell\GitHub\Facades\GitHub;
 
 class ApiController extends \BaseController {
 
@@ -62,9 +63,11 @@ class ApiController extends \BaseController {
     {
         // get the user and send request to github
         // url: "https://api.github.com/users/travism26/repos",
-        $git = new githubWrapper($username);
-        $gitData = $git->getRepo();
+	    GitHub::connection('main')->issues()->show('GrahamCampbell', 'Laravel-GitHub', 2);
+//        $git = new githubWrapper($username);
+//        $gitData = $git->getRepo();
         //dd($gitData);
+	    $gitData = [];
         return View::make('api.github')->with('repo', $gitData);
     }
 
