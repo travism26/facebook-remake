@@ -65,12 +65,12 @@ class ApiController extends \BaseController {
         // get the user and send request to github
         // url: "https://api.github.com/users/travism26/repos",
 
+	    $client = new \Github\Client();
+	    $repositories = $client->api('user')->repositories($username);
 
-//        $git = new githubWrapper($username);
-//        $gitData = $git->getRepo();
-        //dd($gitData);
+	    //dd($repositories);
 	    $gitData = [];
-        return View::make('api.github')->with('repo', $gitData);
+        return View::make('api.github')->with('repo', $repositories);
     }
 
     /**

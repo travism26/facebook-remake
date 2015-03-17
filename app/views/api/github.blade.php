@@ -8,7 +8,9 @@
         <div class="row">
             <ul>
                 @foreach( $repo as $item )
-                    <li><a href="https://github.com/{{ $item->{'owner'}->{'login'} }}/{{ $item->{'name'} }}" target="_blank">{{ $item->{'name'} }}</a></li>
+                    <li>
+                        <a href="https://github.com/{{ $item['owner']['login'] }}/{{ $item['name'] }}"
+                           target="_blank">{{ $item['name'] }}</a></li>
                 @endforeach
             </ul>
         </div>
