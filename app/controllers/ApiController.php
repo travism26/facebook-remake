@@ -65,11 +65,8 @@ class ApiController extends \BaseController {
 		// get the user and send request to github
 		// url: "https://api.github.com/users/travism26/repos",
 
-		$client       = new \Github\Client();
+		$client       = new Client();
 		$repositories = $client->api('user')->repositories($username);
-
-		//dd($repositories);
-		$gitData = [];
 
 		return View::make('api.github')->with('repo', $repositories);
 	}
@@ -95,37 +92,8 @@ class ApiController extends \BaseController {
 	 */
 	public function google()
 	{
-		/*
-		 * var events = [
-			['Fredericton', 45.9500, -66.6667, 3],
-			['Gesgapegiag', 48.199, -65.923, 4],
-			['Saint John', 45.2796, -66.0628, 2],
-			['Miramichi', 47.0225, -65.5089, 1]
-		];
-		 */
-		//AUTH code not working...might need to open a support ticket.
-		$authCode  = "AIzaSyBq0-11FD2K0CJtw4QEw5EKhzKpivs9Lpw";
-		$locations = array(
-			[
-				'Location'  => 'Fredericton',
-				'latitude'  => '45.9500',
-				'longitude' => '-66.6667',
-				'zIndex'    => '3'
-			],
-			[
-				'Location'  => 'Gesgapegiag',
-				'latitude'  => '48.199',
-				'longitude' => '-65.923',
-				'zIndex'    => '4'
-			]
-		);
-
-		$event = $this->markers->getMarkers();
-		//dd($event);
-		//$location_encoded = json_encode( $locations );
-
-		//dd($location_encoded);
-		return View::make('messaging.google-maps')->with('events', $event);
+		return Redirect::to('/');
+		//return View::make('messaging.google-maps')->with('events', $event);
 	}
 
 	/**
