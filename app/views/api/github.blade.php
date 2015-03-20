@@ -34,7 +34,11 @@
                                 <p>{{ $item['description'] }}</p>
                                 <ul class="list-inline">
                                     <li>Watchers: {{ $item['watchers_count'] }}</li>
-                                    <li>Favorites: 0</li>
+                                    <li>Stars: {{ $item['stargazers_count'] }}</li>
+                                </ul>
+
+                                <ul class="list-inline">
+                                    <li>Language: {{ $item['language'] }}</li>
                                 </ul>
                             </div>
                         </div>

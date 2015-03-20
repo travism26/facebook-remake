@@ -67,7 +67,7 @@ class ApiController extends \BaseController {
 
 		$client       = new Client();
 		$repositories = $client->api('user')->repositories($username);
-
+		//dd($repositories);
 		return View::make('api.github')->with('repo', $repositories);
 	}
 
